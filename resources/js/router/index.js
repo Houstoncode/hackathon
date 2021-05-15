@@ -1,10 +1,7 @@
-
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter);
-
-import App from '../views/App'
 
 const router = new VueRouter({
   mode: 'history',
@@ -12,7 +9,12 @@ const router = new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: App
+      component: () => import('../views/Home')
+    },
+    {
+      path: '/fact',
+      name: 'fact',
+      component: () => import('../views/Fact')
     },
   ],
 });
