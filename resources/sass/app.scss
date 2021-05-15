@@ -1,4 +1,134 @@
+body,
+html {
+    margin: 0;
+    padding: 0%;
+    font-size: 16px;
+    line-height: 20px;
+    background: #16151a;
+}
 
-body {
-    background-color: #000;
+* {
+    box-sizing: border-box;
+}
+
+li,
+ul,
+a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: black;
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: "RostelecomBasisBold";
+    src: url("../../public/fonts/RostelecomBasisBold.otf");
+}
+
+.container {
+    max-width: 1200px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.header {
+    background: #16151a;
+    padding: 15px 0;
+    &__logo {
+        margin-right: 30px;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu {
+        &__ul {
+            display: flex;
+            align-items: center;
+        }
+        &__list {
+            margin: 0 10px;
+            &-link {
+                color: #fff;
+                font-family: "RostelecomBasisBold";
+            }
+        }
+    }
+}
+
+.film-info {
+    height: 365px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    font-family: "RostelecomBasisBold";
+    padding: 0px 60px 34px 60px;
+    border-radius: 8px;
+    .container {
+        width: 100%;
+    }
+    &__limitations {
+        display: flex;
+        align-items: center;
+        &-disp,
+        &-term,
+        &-age {
+            padding: 0 5px;
+            height: 22.05px;
+            background: #f52f57;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        &-term {
+            background: #6f31be;
+        }
+        &-age {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        &-title {
+            margin-top: 12px;
+            font-size: 40px;
+            line-height: 51px;
+            font-weight: 700;
+        }
+        &-subtext {
+            font-size: 17px;
+            line-height: 22px;
+            font-weight: 700;
+        }
+        &-info {
+            display: flex;
+            align-items: flex-end;
+            &_item {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                margin-left: 15px;
+            }
+            &_estimation {
+                font-size: 27px;
+                line-height: 35px;
+            }
+            &_text {
+                font-size: 12px;
+                line-height: 15px;
+            }
+        }
+    }
 }
