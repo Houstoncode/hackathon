@@ -7,31 +7,19 @@
             <nav class="menu">
                 <ul class="menu__ul">
                     <li class="menu__list">
-                        <a href="#" class="menu__list-link">ТВ-каналы</a>
-                    </li>
-                    <li class="menu__list">
                         <a href="#" class="menu__list-link">Фильмы</a>
                     </li>
                     <li class="menu__list">
                         <a href="#" class="menu__list-link">Сериалы</a>
                     </li>
                     <li class="menu__list">
-                        <a href="#" class="menu__list-link">Детям</a>
-                    </li>
-                    <li class="menu__list">
-                        <a href="#" class="menu__list-link">Подборки</a>
+                        <a href="#" class="menu__list-link">Мультфильмы</a>
                     </li>
                     <li class="menu__list">
                         <a href="#" class="menu__list-link">Книги</a>
                     </li>
                     <li class="menu__list">
                         <a href="#" class="menu__list-link">Спорт</a>
-                    </li>
-                    <li class="menu__list">
-                        <a href="#" class="menu__list-link">Бесплатно</a>
-                    </li>
-                    <li class="menu__list">
-                        <a href="#" class="menu__list-link">Подписки</a>
                     </li>
                     <li class="menu__list">
                         <a href="#" class="menu__list-link">Акции</a>
