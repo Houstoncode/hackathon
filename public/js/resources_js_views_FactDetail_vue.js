@@ -523,7 +523,7 @@ var render = function() {
     "div",
     {
       staticClass: "film-info",
-      style: { backgroundImage: 'url("' + _vm.imgUrl + '")' }
+      style: { backgroundImage: "url(" + _vm.item.path_full + ")" }
     },
     [
       _c("div", { staticClass: "container" }, [
@@ -537,7 +537,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "film-info__limitations-age" }, [
-            _vm._v("16+")
+            _vm._v(_vm._s(_vm.item.age) + "+")
           ])
         ]),
         _vm._v(" "),

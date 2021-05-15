@@ -285,6 +285,46 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -362,6 +402,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)(["getPopularViews", "getFilms"])),
+  methods: {
+    handleNextSlide: function handleNextSlide(ref) {
+      this.$refs[ref].$swiper.slideNext();
+    },
+    handlePrevSlide: function handlePrevSlide(ref) {
+      this.$refs[ref].$swiper.slidePrev();
+    }
+  },
   components: {
     FilmInfo: _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__.default,
     LidersCard: _components_liders_LidersCard__WEBPACK_IMPORTED_MODULE_1__.default,
@@ -13503,7 +13551,7 @@ var render = function() {
     "div",
     {
       staticClass: "film-info",
-      style: { backgroundImage: 'url("' + _vm.imgUrl + '")' }
+      style: { backgroundImage: "url(" + _vm.item.path_full + ")" }
     },
     [
       _c("div", { staticClass: "container" }, [
@@ -13517,7 +13565,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "film-info__limitations-age" }, [
-            _vm._v("16+")
+            _vm._v(_vm._s(_vm.item.age) + "+")
           ])
         ]),
         _vm._v(" "),
@@ -13765,7 +13813,11 @@ var render = function() {
         [
           _c(
             "swiper",
-            { staticClass: "swiper", attrs: { options: _vm.swiperOption } },
+            {
+              ref: "slider1",
+              staticClass: "swiper",
+              attrs: { options: _vm.swiperOption }
+            },
             [
               _vm._l(_vm.getFilms, function(item) {
                 return _c(
@@ -13781,6 +13833,11 @@ var render = function() {
                 {
                   staticClass: "swiper-button-prev",
                   attrs: { slot: "button-prev" },
+                  on: {
+                    click: function() {
+                      return _vm.handlePrevSlide("slider1")
+                    }
+                  },
                   slot: "button-prev"
                 },
                 [_c("img", { attrs: { src: "img/arrow-left.png", alt: "" } })]
@@ -13791,6 +13848,11 @@ var render = function() {
                 {
                   staticClass: "swiper-button-next",
                   attrs: { slot: "button-next" },
+                  on: {
+                    click: function() {
+                      return _vm.handleNextSlide("slider1")
+                    }
+                  },
                   slot: "button-next"
                 },
                 [_c("img", { attrs: { src: "img/arrow-right.png", alt: "" } })]
@@ -13814,16 +13876,48 @@ var render = function() {
           _vm._v(" "),
           _c(
             "swiper",
-            { attrs: { options: _vm.swiperOption2 } },
-            _vm._l(_vm.getPopularViews, function(item) {
-              return _c(
-                "swiper-slide",
-                { key: "" + item.name },
-                [_c("LidersCard", { attrs: { item: item } })],
-                1
+            { ref: "slider2", attrs: { options: _vm.swiperOption2 } },
+            [
+              _vm._l(_vm.getPopularViews, function(item) {
+                return _c(
+                  "swiper-slide",
+                  { key: "" + item.name },
+                  [_c("LidersCard", { attrs: { item: item } })],
+                  1
+                )
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "swiper-button-prev",
+                  attrs: { slot: "button-prev" },
+                  on: {
+                    click: function() {
+                      return _vm.handlePrevSlide("slider2")
+                    }
+                  },
+                  slot: "button-prev"
+                },
+                [_c("img", { attrs: { src: "img/arrow-left.png", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "swiper-button-next",
+                  attrs: { slot: "button-next" },
+                  on: {
+                    click: function() {
+                      return _vm.handleNextSlide("slider2")
+                    }
+                  },
+                  slot: "button-next"
+                },
+                [_c("img", { attrs: { src: "img/arrow-right.png", alt: "" } })]
               )
-            }),
-            1
+            ],
+            2
           )
         ],
         1
@@ -13842,18 +13936,51 @@ var render = function() {
           _c(
             "swiper",
             {
+              ref: "slider3",
               staticClass: "serials__wrapper",
               attrs: { options: _vm.swiperOption3 }
             },
-            _vm._l(_vm.cards, function(card) {
-              return _c(
-                "swiper-slide",
-                { key: card.name },
-                [_c("SerialCard", { attrs: { item: card } })],
-                1
+            [
+              _vm._l(_vm.cards, function(card) {
+                return _c(
+                  "swiper-slide",
+                  { key: card.name },
+                  [_c("SerialCard", { attrs: { item: card } })],
+                  1
+                )
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "swiper-button-prev",
+                  attrs: { slot: "button-prev" },
+                  on: {
+                    click: function() {
+                      return _vm.handlePrevSlide("slider3")
+                    }
+                  },
+                  slot: "button-prev"
+                },
+                [_c("img", { attrs: { src: "img/arrow-left.png", alt: "" } })]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "swiper-button-next",
+                  attrs: { slot: "button-next" },
+                  on: {
+                    click: function() {
+                      return _vm.handleNextSlide("slider3")
+                    }
+                  },
+                  slot: "button-next"
+                },
+                [_c("img", { attrs: { src: "img/arrow-right.png", alt: "" } })]
               )
-            }),
-            1
+            ],
+            2
           )
         ],
         1

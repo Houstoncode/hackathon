@@ -25,6 +25,8 @@ class FilmResource extends JsonResource
             'wink' => $this->wink,
             'kinopoisk' => $this->kinopoisk,
             'imdb' => $this->imdb,
+            'age' => $this->age,
+            'path_full' => $this->path_full,
             'tasks' => TaskResource::collection($this->tasks)
         ];
     }
