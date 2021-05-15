@@ -5,6 +5,7 @@ html {
     font-size: 16px;
     line-height: 20px;
     background: #16151a;
+    font-family: "RostelecomBasisBold";
 }
 
 * {
@@ -128,6 +129,168 @@ a {
             &_text {
                 font-size: 12px;
                 line-height: 15px;
+            }
+        }
+    }
+}
+
+.leaders {
+    display: block;
+    &__title {
+        font-size: 27px;
+        line-height: 35px;
+        margin: 35px 0 15px 0;
+        color: #fff;
+        font-family: "RostelecomBasisBold";
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.leaders-card {
+    position: relative;
+    width: 176px;
+    &__preview {
+        &:before {
+            content: "Премьера";
+            width: 78.02px;
+            height: 22.08px;
+            background: #6f31be;
+            font-family: "RostelecomBasisBold";
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            color: #fff;
+            z-index: 20;
+            font-size: 14px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__top {
+        width: 100%;
+        height: 255px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-radius: 3px;
+    }
+    &__bottom {
+        color: #fff;
+        margin-top: 10px;
+    }
+}
+
+.serials {
+    display: block;
+    &__title {
+        font-size: 27px;
+        line-height: 35px;
+        margin: 52px 0 15px 0;
+        color: #fff;
+        font-family: "RostelecomBasisBold";
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.serial-card {
+    position: relative;
+    width: 378px;
+    &__top {
+        width: 100%;
+        height: 255px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border-radius: 3px;
+    }
+    &__bottom {
+        color: #fff;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 20px;
+        left: 10px;
+        &-title {
+            font-size: 17px;
+            line-height: 21px;
+        }
+        &-subtitle {
+            font-size: 16px;
+            line-height: 21px;
+            letter-spacing: -0.015em;
+            color: #ffffff;
+            opacity: 0.5;
+        }
+    }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    opacity: 1;
+    &:after {
+        content: "" !important;
+    }
+}
+
+.swiper-button-prev {
+    margin-left: 10px;
+}
+
+.swiper-button-next {
+    margin-right: 10px;
+}
+
+.footer {
+    position: relative;
+    margin-top: 50px;
+    .container {
+        position: relative;
+        padding: 10px 0 30px 0;
+        &:before {
+            width: 100%;
+            background: #2b2a2f;
+            height: 1px;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+    &__top {
+        &-ul {
+            display: flex;
+            align-items: center;
+        }
+        &-li {
+            margin-right: 15px;
+            a {
+                color: #fff;
+                font-size: 12px;
+                line-height: 15px;
+                letter-spacing: -0.015em;
+                color: #b4b7bb;
+            }
+        }
+    }
+    &__bottom {
+        &-text {
+            margin-top: 4px;
+            font-size: 11px;
+            line-height: 14px;
+            letter-spacing: -0.015em;
+            color: #545156;
+            a {
+                color: #fff;
+                font-weight: 400;
+                letter-spacing: 0.5px !important;
+                text-decoration: underline;
             }
         }
     }

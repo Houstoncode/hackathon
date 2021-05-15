@@ -7,7 +7,6 @@
 const { default: router } = require('./router');
 const { default: store } = require('./store');
 
-
 require('./bootstrap');
 
 window.Vue = require('vue').default;
