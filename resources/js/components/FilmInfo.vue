@@ -1,7 +1,7 @@
 <template>
     <div
         class="film-info"
-        v-bind:style="{ backgroundImage: `url(&quot;${imgUrl}&quot;)` }"
+        v-bind:style="{ backgroundImage: `url(${item.path_full})` }"
     >
         <div class="container">
             <div class="film-info__limitations">
@@ -9,7 +9,7 @@
                     {{ item.category }}
                 </div>
                 <!-- <div class="film-info__limitations-term">Драма</div> -->
-                <div class="film-info__limitations-age">16+</div>
+                <div class="film-info__limitations-age">{{ item.age }}+</div>
             </div>
             <div class="film-info__wrapper">
                 <div class="film-info__wrapper-left">

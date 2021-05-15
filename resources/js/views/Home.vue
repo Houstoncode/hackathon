@@ -2,14 +2,22 @@
     <div>
         <section class="film">
             <div class="container">
-                <swiper class="swiper" :options="swiperOption">
+                <swiper ref="slider1" class="swiper" :options="swiperOption">
                     <swiper-slide v-for="item in getFilms" :key="item.name"
                         ><FilmInfo :item="item" />
                     </swiper-slide>
-                    <div class="swiper-button-prev" slot="button-prev">
+                    <div
+                        class="swiper-button-prev"
+                        slot="button-prev"
+                        @click="() => handlePrevSlide('slider1')"
+                    >
                         <img src="img/arrow-left.png" alt="" />
                     </div>
-                    <div class="swiper-button-next" slot="button-next">
+                    <div
+                        class="swiper-button-next"
+                        slot="button-next"
+                        @click="() => handleNextSlide('slider1')"
+                    >
                         <img src="img/arrow-right.png" alt="" />
                     </div>
                 </swiper>
@@ -19,13 +27,27 @@
         <section class="leaders">
             <div class="container">
                 <div class="leaders__title">Лидеры просмотров</div>
-                <swiper :options="swiperOption2">
+                <swiper ref="slider2" :options="swiperOption2">
                     <swiper-slide
                         v-for="item in getPopularViews"
                         :key="`${item.name}`"
                     >
                         <LidersCard :item="item" />
                     </swiper-slide>
+                    <div
+                        class="swiper-button-prev"
+                        slot="button-prev"
+                        @click="() => handlePrevSlide('slider2')"
+                    >
+                        <img src="img/arrow-left.png" alt="" />
+                    </div>
+                    <div
+                        class="swiper-button-next"
+                        slot="button-next"
+                        @click="() => handleNextSlide('slider2')"
+                    >
+                        <img src="img/arrow-right.png" alt="" />
+                    </div>
                 </swiper>
             </div>
         </section>
@@ -33,10 +55,28 @@
         <section class="serials">
             <div class="container">
                 <div class="serials__title">Самые интересные подборки</div>
-                <swiper class="serials__wrapper" :options="swiperOption3">
+                <swiper
+                    ref="slider3"
+                    class="serials__wrapper"
+                    :options="swiperOption3"
+                >
                     <swiper-slide v-for="card in cards" :key="card.name">
                         <SerialCard :item="card" />
                     </swiper-slide>
+                    <div
+                        class="swiper-button-prev"
+                        slot="button-prev"
+                        @click="() => handlePrevSlide('slider3')"
+                    >
+                        <img src="img/arrow-left.png" alt="" />
+                    </div>
+                    <div
+                        class="swiper-button-next"
+                        slot="button-next"
+                        @click="() => handleNextSlide('slider3')"
+                    >
+                        <img src="img/arrow-right.png" alt="" />
+                    </div>
                 </swiper>
             </div>
         </section>
@@ -146,6 +186,14 @@ export default {
     },
     computed: {
         ...mapGetters(["getPopularViews", "getFilms"])
+    },
+    methods: {
+        handleNextSlide(ref) {
+            this.$refs[ref].$swiper.slideNext();
+        },
+        handlePrevSlide(ref) {
+            this.$refs[ref].$swiper.slidePrev();
+        }
     },
     components: {
         FilmInfo,
