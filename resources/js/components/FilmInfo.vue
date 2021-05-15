@@ -47,7 +47,7 @@
 export default {
     data() {
         return {
-            imgUrl: 'public/img/main-bg/item-1.jpg'
+            imgUrl: 'img/main-bg/item-1.jpg'
         }
     }
 }
