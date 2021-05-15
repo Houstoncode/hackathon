@@ -33,15 +33,49 @@ a {
     margin: 0 auto;
 }
 
+button {
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    background-color: inherit;
+}
+
 .header {
     background: #16151a;
-    padding: 15px 0;
+    padding: 15px 0px;
+    .container {
+        padding: 0 70px;
+    }
     &__logo {
         margin-right: 30px;
     }
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+    &__right {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        &-img {
+            margin-top: 6px;
+            margin-right: 5px;
+        }
+        &-line {
+            padding-top: 3px;
+        }
+        &-register {
+            padding-top: 3px;
+        }
+        button {
+            font-size: 16px;
+            line-height: 21px;
+            color: #fff;
+        }
+    }
     .container {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
     }
     .menu {
@@ -54,6 +88,23 @@ a {
             &-link {
                 color: #fff;
                 font-family: "RostelecomBasisBold";
+                position: relative;
+                &:before {
+                    content: "";
+                    width: 0%;
+                    background-color: #fff;
+                    height: 1px;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    position: absolute;
+                    transition: all 0.4s;
+                }
+                &:hover {
+                    &:before {
+                        width: 100%;
+                    }
+                }
             }
         }
     }
@@ -342,6 +393,18 @@ a {
 }
 
 .facts {
+    text-align: center;
+    &__btn {
+        width: 153.04px;
+        height: 52.14px;
+        background: #ff4f12;
+        box-shadow: -3px 5px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        color: #fff;
+        font-size: 25px;
+        line-height: 32px;
+        margin: 0 auto;
+    }
     .film-info {
         max-width: 100%;
     }
@@ -354,6 +417,7 @@ a {
     &__block {
         margin-top: 50px;
         width: 100%;
+        text-align: left;
     }
     &__title {
         margin-bottom: 10px;
@@ -451,6 +515,20 @@ a {
     }
 }
 
+.form_radio {
+    margin-bottom: 13px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    margin-left: 25px;
+    label {
+        font-size: 17px;
+        line-height: 22px;
+        letter-spacing: 0.02em;
+        color: #4e4e55;
+    }
+}
+
 .form_radio input[type="radio"] {
     display: none;
 }
@@ -462,6 +540,7 @@ a {
     margin-right: 0;
     line-height: 18px;
     user-select: none;
+    padding-left: 40px;
 }
 .form_radio label:before {
     content: "";
@@ -474,9 +553,52 @@ a {
     background-image: url(../img/radio-1.png);
     background-size: cover;
 }
-
-/* Checked */
 .form_radio input[type="radio"]:checked + label:before {
     background-image: url(../img/radio-2.png);
     background-size: cover;
+}
+.form_radio input[type="radio"]:checked + label {
+    color: #919193;
+}
+
+.auth {
+    text-align: center;
+    color: #ffffff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #16151a;
+    border: 1px solid #111013;
+    box-shadow: -3px 5px 97px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    z-index: 50;
+    padding: 100px 200px 70px 200px;
+    width: 800px;
+    &__title {
+        font-size: 28px;
+        line-height: 36px;
+        letter-spacing: 0.02em;
+    }
+    &__subtitle {
+        font-size: 15px;
+        line-height: 19px;
+        letter-spacing: 0.02em;
+        color: #ffffff;
+        margin-top: 15px;
+        font-weight: 500;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        label {
+            position: absolute;
+            top: -15px;
+            left: 0;
+        }
+        input {
+            width: 100%;
+        }
+    }
 }

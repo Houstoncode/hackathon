@@ -175,6 +175,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -658,7 +660,9 @@ var render = function() {
             1
           )
         ])
-      ])
+      ]),
+      _vm._v(" "),
+      _c("button", { staticClass: "facts__btn" }, [_vm._v("Ответить")])
     ],
     1
   )
