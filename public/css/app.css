@@ -1,3 +1,129 @@
-body {
-  background-color: #000;
+body,
+html {
+  margin: 0;
+  padding: 0%;
+  font-size: 16px;
+  line-height: 20px;
+  background: #16151a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+li,
+ul,
+a {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: black;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "RostelecomBasisBold";
+  src: url(/fonts/RostelecomBasisBold.otf?37a5ec2f7ab6f5f88040041257f5f9f0);
+}
+.container {
+  max-width: 1200px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.header {
+  background: #16151a;
+  padding: 15px 0;
+}
+.header__logo {
+  margin-right: 30px;
+}
+.header .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header .menu__ul {
+  display: flex;
+  align-items: center;
+}
+.header .menu__list {
+  margin: 0 10px;
+}
+.header .menu__list-link {
+  color: #fff;
+  font-family: "RostelecomBasisBold";
+}
+
+.film-info {
+  height: 365px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  font-family: "RostelecomBasisBold";
+  padding: 0px 60px 34px 60px;
+  border-radius: 8px;
+}
+.film-info .container {
+  width: 100%;
+}
+.film-info__limitations {
+  display: flex;
+  align-items: center;
+}
+.film-info__limitations-disp, .film-info__limitations-term, .film-info__limitations-age {
+  padding: 0 5px;
+  height: 22.05px;
+  background: #f52f57;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.film-info__limitations-term {
+  background: #6f31be;
+}
+.film-info__limitations-age {
+  background: rgba(0, 0, 0, 0.5);
+}
+.film-info__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.film-info__wrapper-title {
+  margin-top: 12px;
+  font-size: 40px;
+  line-height: 51px;
+  font-weight: 700;
+}
+.film-info__wrapper-subtext {
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 700;
+}
+.film-info__wrapper-info {
+  display: flex;
+  align-items: flex-end;
+}
+.film-info__wrapper-info_item {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-left: 15px;
+}
+.film-info__wrapper-info_estimation {
+  font-size: 27px;
+  line-height: 35px;
+}
+.film-info__wrapper-info_text {
+  font-size: 12px;
+  line-height: 15px;
 }
