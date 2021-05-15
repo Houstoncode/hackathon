@@ -25,6 +25,7 @@ class CreateFilmsTable extends Migration
             $table->float('wink')->default(8);
             $table->float('kinopoisk')->default(5);
             $table->float('imdb')->default(7);
+            $table->integer('age')->default(16);
             $table->timestamps();
         });
     }

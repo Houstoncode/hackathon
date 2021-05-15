@@ -1,31 +1,36 @@
 <template>
-    <div class="film-info" v-bind:style='{ backgroundImage: `url("${imgUrl}")` }'>
+    <div
+        class="film-info"
+        v-bind:style="{ backgroundImage: `url(&quot;${imgUrl}&quot;)` }"
+    >
         <div class="container">
             <div class="film-info__limitations">
-                <div class="film-info__limitations-disp">Детям</div>
-                <div class="film-info__limitations-term">Новинка</div>
-                <div class="film-info__limitations-age">6+</div>
+                <div class="film-info__limitations-disp">
+                    {{ item.category }}
+                </div>
+                <!-- <div class="film-info__limitations-term">Драма</div> -->
+                <div class="film-info__limitations-age">16+</div>
             </div>
             <div class="film-info__wrapper">
                 <div class="film-info__wrapper-left">
                     <div class="film-info__wrapper-title">
-                        Супергеройские фильмы Marvel
+                        {{ item.name }}
                     </div>
                     <div class="film-info__wrapper-subtext">
-                        Захватывающее анимационное фэнтези от Marvel
+                        {{ item.subdescription }}
                     </div>
                 </div>
                 <div class="film-info__wrapper-right"></div>
                 <div class="film-info__wrapper-info">
                     <div class="film-info__wrapper-info_item">
                         <div class="film-info__wrapper-info_estimation">
-                            8.5
+                            {{ item.wink.toFixed(1) }}
                         </div>
                         <div class="film-info__wrapper-info_text">Wink</div>
                     </div>
                     <div class="film-info__wrapper-info_item">
                         <div class="film-info__wrapper-info_estimation">
-                            7.6
+                            {{ item.kinopoisk.toFixed(1) }}
                         </div>
                         <div class="film-info__wrapper-info_text">
                             КиноПоиск
@@ -33,7 +38,7 @@
                     </div>
                     <div class="film-info__wrapper-info_item">
                         <div class="film-info__wrapper-info_estimation">
-                            7.4
+                            {{ item.imdb.toFixed(1) }}
                         </div>
                         <div class="film-info__wrapper-info_text">IMDb</div>
                     </div>
@@ -47,8 +52,14 @@
 export default {
     data() {
         return {
-            imgUrl: 'img/main-bg/item-1.jpg'
+            imgUrl: "img/main-bg/item-1.jpg"
+        };
+    },
+    props: {
+        item: {
+            required: true,
+            default: {}
         }
     }
-}
+};
 </script>

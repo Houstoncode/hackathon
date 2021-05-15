@@ -123,11 +123,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      imgUrl: 'img/main-bg/item-1.jpg'
+      imgUrl: "img/main-bg/item-1.jpg"
     };
+  },
+  props: {
+    item: {
+      required: true,
+      "default": {}
+    }
   }
 });
 
@@ -512,81 +523,94 @@ var render = function() {
       staticClass: "film-info",
       style: { backgroundImage: 'url("' + _vm.imgUrl + '")' }
     },
-    [_vm._m(0)]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "film-info__limitations" }, [
-        _c("div", { staticClass: "film-info__limitations-disp" }, [
-          _vm._v("Детям")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "film-info__limitations-term" }, [
-          _vm._v("Новинка")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "film-info__limitations-age" }, [_vm._v("6+")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "film-info__wrapper" }, [
-        _c("div", { staticClass: "film-info__wrapper-left" }, [
-          _c("div", { staticClass: "film-info__wrapper-title" }, [
+    [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "film-info__limitations" }, [
+          _c("div", { staticClass: "film-info__limitations-disp" }, [
             _vm._v(
-              "\n                    Супергеройские фильмы Marvel\n                "
+              "\n                " +
+                _vm._s(_vm.item.category) +
+                "\n            "
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "film-info__wrapper-subtext" }, [
-            _vm._v(
-              "\n                    Захватывающее анимационное фэнтези от Marvel\n                "
-            )
+          _c("div", { staticClass: "film-info__limitations-age" }, [
+            _vm._v("16+")
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "film-info__wrapper-right" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "film-info__wrapper-info" }, [
-          _c("div", { staticClass: "film-info__wrapper-info_item" }, [
-            _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
-              _vm._v("\n                        8.5\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "film-info__wrapper-info_text" }, [
-              _vm._v("Wink")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "film-info__wrapper-info_item" }, [
-            _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
-              _vm._v("\n                        7.6\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "film-info__wrapper-info_text" }, [
+        _c("div", { staticClass: "film-info__wrapper" }, [
+          _c("div", { staticClass: "film-info__wrapper-left" }, [
+            _c("div", { staticClass: "film-info__wrapper-title" }, [
               _vm._v(
-                "\n                        КиноПоиск\n                    "
+                "\n                    " +
+                  _vm._s(_vm.item.name) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "film-info__wrapper-subtext" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.item.subdescription) +
+                  "\n                "
               )
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "film-info__wrapper-info_item" }, [
-            _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
-              _vm._v("\n                        7.4\n                    ")
+          _c("div", { staticClass: "film-info__wrapper-right" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "film-info__wrapper-info" }, [
+            _c("div", { staticClass: "film-info__wrapper-info_item" }, [
+              _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(_vm.item.wink.toFixed(1)) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "film-info__wrapper-info_text" }, [
+                _vm._v("Wink")
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "film-info__wrapper-info_text" }, [
-              _vm._v("IMDb")
+            _c("div", { staticClass: "film-info__wrapper-info_item" }, [
+              _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(_vm.item.kinopoisk.toFixed(1)) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "film-info__wrapper-info_text" }, [
+                _vm._v(
+                  "\n                        КиноПоиск\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "film-info__wrapper-info_item" }, [
+              _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(_vm.item.imdb.toFixed(1)) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "film-info__wrapper-info_text" }, [
+                _vm._v("IMDb")
+              ])
             ])
           ])
         ])
       ])
-    ])
-  }
-]
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

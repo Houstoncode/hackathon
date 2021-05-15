@@ -20,7 +20,7 @@ class FilmResource extends JsonResource
             'subdescription' => $this->subdescription,
             'category' => $this->category,
             'image_href' => $this->image_href,
-            'is_premier' => $this->is_premier,
+            'is_premier' => $this->is_premier === '1',
             'views' => $this->views,
             'wink' => $this->wink,
             'kinopoisk' => $this->kinopoisk,

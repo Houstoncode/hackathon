@@ -1,17 +1,36 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
-      count: 0
+        films: null
     },
     mutations: {
-      increment (state) {
-        state.count++
-      }
-    }
-  })
+        SET_INIT_DATA(state, data) {
+            state.films = data;
+        }
+    },
+    actions: {
+        async fetchFilms({ commit }) {
+            const response = await fetch(window.location.origin + "/api/init");
 
-  export default store;
+            const { data } = await response.json();
+
+            commit("SET_INIT_DATA", data);
+        }
+    },
+    getters: {
+        getPopularViews: state => {
+            if (!state.films) return [];
+
+            return state.films.sort((a, b) => a.views - b.views);
+        },
+        getFilms: state => {
+            return state.films ? state.films : [];
+        }
+    }
+});
+
+export default store;
