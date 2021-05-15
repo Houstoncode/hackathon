@@ -8,7 +8,6 @@
                 <div class="film-info__limitations-disp">
                     {{ item.category }}
                 </div>
-                <!-- <div class="film-info__limitations-term">Драма</div> -->
                 <div class="film-info__limitations-age">{{ item.age }}+</div>
             </div>
             <div class="film-info__wrapper">
