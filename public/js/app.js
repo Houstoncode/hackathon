@@ -2211,6 +2211,10 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_2__.default.Store({
     },
     getFilms: function getFilms(state) {
       return state.films ? state.films : [];
+    },
+    getFirstFilm: function getFirstFilm(state) {
+      if (!state.films) return null;
+      return state.films[0];
     }
   }
 });

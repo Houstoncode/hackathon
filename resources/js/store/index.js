@@ -29,6 +29,11 @@ const store = new Vuex.Store({
         },
         getFilms: state => {
             return state.films ? state.films : [];
+        },
+        getFirstFilm: state => {
+            if (!state.films) return null;
+
+            return state.films[0];
         }
     }
 });

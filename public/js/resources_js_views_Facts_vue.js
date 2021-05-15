@@ -27,9 +27,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FactsCard",
+  props: {},
   data: function data() {
     return {
-      imgUrl: "img/facts/item-1.jpg"
+      imgUrl: "img/facts/1.png"
     };
   }
 });
@@ -126,6 +127,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/FilmInfo */ "./resources/js/components/FilmInfo.vue");
 /* harmony import */ var _components_FactsCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/FactsCard */ "./resources/js/components/FactsCard.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -144,13 +152,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     FilmInfo: _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__.default,
-    FactsInfo: _components_FactsCard__WEBPACK_IMPORTED_MODULE_1__.default
-  }
+    FactsCard: _components_FactsCard__WEBPACK_IMPORTED_MODULE_1__.default
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(["getFirstFilm"]))
 });
 
 /***/ }),
@@ -387,26 +397,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("router-link", { staticClass: "facts-card", attrs: { to: "#" } }, [
-    _c(
-      "div",
-      {
-        staticClass: "facts-card__bg",
-        style: { backgroundImage: "url(" + _vm.imgUrl + ")" }
-      },
-      [
-        _c("div", { staticClass: "facts-card__info" }, [
-          _c("div", { staticClass: "facts-card__info-title" }, [
-            _vm._v("Любит не любит")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "facts-card__info-text" }, [
-            _vm._v("Российские ромкомы")
+  return _c(
+    "router-link",
+    { staticClass: "facts-card", attrs: { to: "factsdetail" } },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "facts-card__bg",
+          style: { backgroundImage: "url(" + _vm.imgUrl + ")" }
+        },
+        [
+          _c("div", { staticClass: "facts-card__info" }, [
+            _c("div", { staticClass: "facts-card__info-title" }, [
+              _vm._v("Хаус и всё всё всё")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "facts-card__info-text" }, [
+              _vm._v("Российские ромкомы")
+            ])
           ])
-        ])
-      ]
-    )
-  ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -551,7 +565,7 @@ var render = function() {
     "div",
     { staticClass: "facts" },
     [
-      _c("FilmInfo"),
+      _c("FilmInfo", { attrs: { item: _vm.getFirstFilm } }),
       _vm._v(" "),
       _c("div", { staticClass: "facts__block" }, [
         _c("div", { staticClass: "container" }, [
@@ -566,8 +580,8 @@ var render = function() {
           _c(
             "div",
             { staticClass: "facts__wrapper" },
-            _vm._l(9, function(card) {
-              return _c("FactsInfo", { key: card })
+            _vm._l(1, function(card) {
+              return _c("FactsCard", { key: card })
             }),
             1
           )
