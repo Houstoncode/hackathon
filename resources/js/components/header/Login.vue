@@ -1,5 +1,8 @@
 <template>
     <div class="auth">
+        <button class="auth__close" @click="$emit('closeModel')">
+            <img src="img/close-icon.png" alt="" />
+        </button>
         <div class="auth__img">
             <img src="img/logo-big.png" alt="" />
         </div>
@@ -11,15 +14,15 @@
         </div>
         <form action="#" class="auth__form">
             <div class="auth__form-input">
-                <input type="phone" />
+                <input type="phone" placeholder="+7" />
                 <label for="">Телефон</label>
             </div>
             <div class="auth__form-input">
-                <input type="password" />
+                <input type="password" placeholder="***********" />
                 <label for="">Пароль</label>
             </div>
             <div class="auth__form-submit">
-                <input type="submit" value="Далее" />
+                <input type="submit" value="Далее" disabled />
             </div>
         </form>
     </div>
