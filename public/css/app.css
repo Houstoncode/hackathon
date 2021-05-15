@@ -25,7 +25,7 @@ a {
 
 @font-face {
   font-family: "RostelecomBasisBold";
-  src: url(/fonts/RostelecomBasisBold.otf?37a5ec2f7ab6f5f88040041257f5f9f0);
+  src: url("../../public/fonts/RostelecomBasisBold.otf");
 }
 .container {
   max-width: 1200px;
@@ -330,4 +330,146 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.facts .film-info {
+  max-width: 100%;
+}
+.facts__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 45px;
+}
+.facts__block {
+  margin-top: 50px;
+  width: 100%;
+}
+.facts__title {
+  margin-bottom: 10px;
+  font-size: 40px;
+  line-height: 51px;
+  color: #fff;
+}
+.facts__subtitle {
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #919193;
+}
+
+.facts-card {
+  position: relative;
+  width: 378px;
+  height: 241px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+.facts-card__bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  border-radius: 10px;
+}
+.facts-card__info {
+  position: absolute;
+  color: #fff;
+  bottom: 20px;
+  left: 20px;
+}
+.facts-card__info-title {
+  font-size: 17px;
+  line-height: 21px;
+}
+.facts-card__info-text {
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+.facts-card-detail {
+  width: 100%;
+  margin-bottom: 45px;
+}
+.facts-card-detail:last-child {
+  margin-bottom: 40px;
+}
+.facts-card-detail__top {
+  height: 365px;
+  padding: 20px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center center;
+}
+.facts-card-detail__count {
+  display: flex;
+  align-items: center;
+}
+.facts-card-detail__index {
+  display: flex;
+  margin-left: 10px;
+}
+.facts-card-detail__title, .facts-card-detail__index {
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.02em;
+  color: #919193;
+}
+.facts-card-detail__text {
+  margin-top: 60px;
+  color: #fff;
+  max-width: 800px;
+  padding-left: 70px;
+  font-size: 25px;
+  line-height: 32px;
+}
+.facts-card-detail__bottom {
+  padding-top: 20px;
+  padding-left: 45px;
+}
+.facts-card-detail__bottom-text {
+  font-size: 25px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  color: #919193;
+  padding-bottom: 18px;
+}
+
+.form_radio input[type=radio] {
+  display: none;
+}
+
+.form_radio label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 25px;
+  margin-right: 0;
+  line-height: 18px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.form_radio label:before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  background-image: url(../img/radio-1.png);
+  background-size: cover;
+}
+
+/* Checked */
+.form_radio input[type=radio]:checked + label:before {
+  background-image: url(../img/radio-2.png);
+  background-size: cover;
 }

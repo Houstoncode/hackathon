@@ -246,28 +246,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -279,13 +257,14 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       swiperOption: {
+        slidesPerView: 1,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
         }
       },
       swiperOption2: {
-        slidesPerView: 3,
+        slidesPerView: 6,
         spaceBetween: 10,
         navigation: {
           nextEl: ".swiper-button-next",
@@ -293,6 +272,14 @@ __webpack_require__.r(__webpack_exports__);
         }
       },
       swiperOption3: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      },
+      swiperOption4: {
         slidesPerView: 6,
         spaceBetween: 10,
         navigation: {
@@ -13594,7 +13581,7 @@ var render = function() {
         "div",
         {
           staticClass: "serial-card__top",
-          style: { backgroundImage: 'url("' + _vm.imgUrl + '")' }
+          style: { backgroundImage: "url(" + _vm.imgUrl + ")" }
         },
         [
           _c("div", { staticClass: "serial-card__bottom" }, [
@@ -13755,7 +13742,7 @@ var render = function() {
             "swiper",
             {
               staticClass: "serials__wrapper",
-              attrs: { options: _vm.swiperOption2 }
+              attrs: { options: _vm.swiperOption3 }
             },
             _vm._l(3, function(card) {
               return _c("swiper-slide", { key: card }, [_c("SerialCard")], 1)
@@ -13780,7 +13767,7 @@ var render = function() {
             "swiper",
             {
               staticClass: "thematic__wrapper",
-              attrs: { options: _vm.swiperOption3 }
+              attrs: { options: _vm.swiperOption4 }
             },
             _vm._l(6, function(card) {
               return _c("swiper-slide", { key: card }, [_c("ThematicCard")], 1)
@@ -13790,43 +13777,10 @@ var render = function() {
         ],
         1
       )
-    ]),
-    _vm._v(" "),
-    _vm._m(0)
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "pather" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "pather__wrapper" }, [
-          _c("div", { staticClass: "pather__wrapper-item" }, [
-            _c("img", { attrs: { src: "img/pather/item-1.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "pather__wrapper-item" }, [
-            _c("img", { attrs: { src: "img/pather/item-2.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "pather__wrapper-item" }, [
-            _c("img", { attrs: { src: "img/pather/item-3.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "pather__wrapper-item" }, [
-            _c("img", { attrs: { src: "img/pather/item-4.png", alt: "" } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "pather__wrapper-item" }, [
-            _c("img", { attrs: { src: "img/pather/item-5.png", alt: "" } })
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
