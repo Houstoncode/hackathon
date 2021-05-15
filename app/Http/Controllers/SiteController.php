@@ -10,7 +10,7 @@ class SiteController extends Controller
 {
     public function init() {
         return response()->json([
-
+            'data' => FilmResource::collection(Film::all())
         ]);
     }
 

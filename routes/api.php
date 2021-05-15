@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/test', [\App\Http\Controllers\SiteController::class, 'test']);
+Route::get('/init', [SiteController::class, 'init']);
+Route::get('/test', [SiteController::class, 'test']);

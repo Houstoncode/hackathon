@@ -56,11 +56,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      imgUrl: 'img/main-bg/item-1.jpg'
+      imgUrl: "img/main-bg/item-1.jpg"
     };
+  },
+  props: {
+    item: {
+      required: true,
+      "default": {}
+    }
   }
 });
 
@@ -92,12 +103,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "LidersCard",
   data: function data() {
     return {
       imgUrl: "img/evidence/item-1.jpg"
     };
+  },
+  props: {
+    item: {
+      required: true,
+      "default": {}
+    }
   }
 });
 
@@ -132,6 +150,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "LidersCard",
+  props: {
+    item: {
+      required: true,
+      "default": {}
+    }
+  },
   data: function data() {
     return {
       imgUrl: "img/serials/item-1.jpg"
@@ -165,6 +189,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "thematicCard",
+  props: {
+    item: {
+      required: true
+    }
+  },
   data: function data() {
     return {
       imgUrl: "img/thematic/item-1.jpg"
@@ -193,6 +222,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_awesome_swiper__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_awesome_swiper__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! swiper/swiper-bundle.css */ "./node_modules/swiper/swiper-bundle.css");
 /* harmony import */ var swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(swiper_swiper_bundle_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -246,6 +282,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+
 
 
 
@@ -256,6 +296,38 @@ __webpack_require__.r(__webpack_exports__);
   name: "home",
   data: function data() {
     return {
+      cards: [{
+        id: 1,
+        name: "Фильмы про роботов и киборгов",
+        subtitle: "Роботы"
+      }, {
+        id: 2,
+        name: "Любит не любит",
+        subtitle: "Российские ромкомы"
+      }, {
+        id: 3,
+        name: "Фильмы про акул",
+        subtitle: "Подводный ужас"
+      }],
+      thematics: [{
+        id: 1,
+        name: "NHL. Все матчи"
+      }, {
+        id: 2,
+        name: "Академия"
+      }, {
+        id: 3,
+        name: "ТВ-шоу"
+      }, {
+        id: 4,
+        name: "Концерты"
+      }, {
+        id: 5,
+        name: "Путешествие"
+      }, {
+        id: 6,
+        name: "Караоке"
+      }],
       swiperOption: {
         slidesPerView: 1,
         navigation: {
@@ -289,6 +361,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_6__.mapGetters)(["getPopularViews", "getFilms"])),
   components: {
     FilmInfo: _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__.default,
     LidersCard: _components_liders_LidersCard__WEBPACK_IMPORTED_MODULE_1__.default,
@@ -13432,81 +13505,94 @@ var render = function() {
       staticClass: "film-info",
       style: { backgroundImage: 'url("' + _vm.imgUrl + '")' }
     },
-    [_vm._m(0)]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "film-info__limitations" }, [
-        _c("div", { staticClass: "film-info__limitations-disp" }, [
-          _vm._v("Детям")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "film-info__limitations-term" }, [
-          _vm._v("Новинка")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "film-info__limitations-age" }, [_vm._v("6+")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "film-info__wrapper" }, [
-        _c("div", { staticClass: "film-info__wrapper-left" }, [
-          _c("div", { staticClass: "film-info__wrapper-title" }, [
+    [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "film-info__limitations" }, [
+          _c("div", { staticClass: "film-info__limitations-disp" }, [
             _vm._v(
-              "\n                    Супергеройские фильмы Marvel\n                "
+              "\n                " +
+                _vm._s(_vm.item.category) +
+                "\n            "
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "film-info__wrapper-subtext" }, [
-            _vm._v(
-              "\n                    Захватывающее анимационное фэнтези от Marvel\n                "
-            )
+          _c("div", { staticClass: "film-info__limitations-age" }, [
+            _vm._v("16+")
           ])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "film-info__wrapper-right" }),
-        _vm._v(" "),
-        _c("div", { staticClass: "film-info__wrapper-info" }, [
-          _c("div", { staticClass: "film-info__wrapper-info_item" }, [
-            _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
-              _vm._v("\n                        8.5\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "film-info__wrapper-info_text" }, [
-              _vm._v("Wink")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "film-info__wrapper-info_item" }, [
-            _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
-              _vm._v("\n                        7.6\n                    ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "film-info__wrapper-info_text" }, [
+        _c("div", { staticClass: "film-info__wrapper" }, [
+          _c("div", { staticClass: "film-info__wrapper-left" }, [
+            _c("div", { staticClass: "film-info__wrapper-title" }, [
               _vm._v(
-                "\n                        КиноПоиск\n                    "
+                "\n                    " +
+                  _vm._s(_vm.item.name) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "film-info__wrapper-subtext" }, [
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.item.subdescription) +
+                  "\n                "
               )
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "film-info__wrapper-info_item" }, [
-            _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
-              _vm._v("\n                        7.4\n                    ")
+          _c("div", { staticClass: "film-info__wrapper-right" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "film-info__wrapper-info" }, [
+            _c("div", { staticClass: "film-info__wrapper-info_item" }, [
+              _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(_vm.item.wink.toFixed(1)) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "film-info__wrapper-info_text" }, [
+                _vm._v("Wink")
+              ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "film-info__wrapper-info_text" }, [
-              _vm._v("IMDb")
+            _c("div", { staticClass: "film-info__wrapper-info_item" }, [
+              _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(_vm.item.kinopoisk.toFixed(1)) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "film-info__wrapper-info_text" }, [
+                _vm._v(
+                  "\n                        КиноПоиск\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "film-info__wrapper-info_item" }, [
+              _c("div", { staticClass: "film-info__wrapper-info_estimation" }, [
+                _vm._v(
+                  "\n                        " +
+                    _vm._s(_vm.item.imdb.toFixed(1)) +
+                    "\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "film-info__wrapper-info_text" }, [
+                _vm._v("IMDb")
+              ])
             ])
           ])
         ])
       ])
-    ])
-  }
-]
+    ]
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -13532,17 +13618,18 @@ var render = function() {
   return _c(
     "router-link",
     {
-      staticClass: "leaders-card leaders-card__preview",
-      attrs: { to: "/filmdetail/:key" }
+      staticClass: "leaders-card",
+      class: { "leaders-card__preview": _vm.item.is_premier },
+      attrs: { to: "/factsdetail" }
     },
     [
       _c("div", {
         staticClass: "leaders-card__top",
-        style: { backgroundImage: 'url("' + _vm.imgUrl + '")' }
+        style: { backgroundImage: "url(" + _vm.item.image_href + ")" }
       }),
       _vm._v(" "),
       _c("div", { staticClass: "leaders-card__bottom" }, [
-        _vm._v("\n        Райя и последний дракон\n    ")
+        _vm._v("\n        " + _vm._s(_vm.item.name) + "\n    ")
       ])
     ]
   )
@@ -13581,16 +13668,20 @@ var render = function() {
         "div",
         {
           staticClass: "serial-card__top",
-          style: { backgroundImage: "url(" + _vm.imgUrl + ")" }
+          style: { backgroundImage: "url(img/films/1/" + _vm.item.id + ".png)" }
         },
         [
           _c("div", { staticClass: "serial-card__bottom" }, [
             _c("div", { staticClass: "serial-card__bottom-title" }, [
-              _vm._v("Любит не любит")
+              _vm._v(_vm._s(_vm.item.name))
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "serial-card__bottom-subtitle" }, [
-              _vm._v("\n                Российские ромкомы\n            ")
+              _vm._v(
+                "\n                " +
+                  _vm._s(_vm.item.subtitle) +
+                  "\n            "
+              )
             ])
           ])
         ]
@@ -13632,11 +13723,11 @@ var render = function() {
         "div",
         {
           staticClass: "thematic-card__top",
-          style: { backgroundImage: 'url("' + _vm.imgUrl + '")' }
+          style: { backgroundImage: "url(img/films/2/" + _vm.item.id + ".png)" }
         },
         [
           _c("div", { staticClass: "thematic-card__bottom" }, [
-            _vm._v("Любит не любит")
+            _vm._v(_vm._s(_vm.item.name))
           ])
         ]
       )
@@ -13676,8 +13767,13 @@ var render = function() {
             "swiper",
             { staticClass: "swiper", attrs: { options: _vm.swiperOption } },
             [
-              _vm._l(5, function(slide) {
-                return _c("swiper-slide", { key: slide }, [_c("FilmInfo")], 1)
+              _vm._l(_vm.getFilms, function(item) {
+                return _c(
+                  "swiper-slide",
+                  { key: item.name },
+                  [_c("FilmInfo", { attrs: { item: item } })],
+                  1
+                )
               }),
               _vm._v(" "),
               _c(
@@ -13719,8 +13815,13 @@ var render = function() {
           _c(
             "swiper",
             { attrs: { options: _vm.swiperOption2 } },
-            _vm._l(6, function(slide) {
-              return _c("swiper-slide", { key: slide }, [_c("LidersCard")], 1)
+            _vm._l(_vm.getPopularViews, function(item) {
+              return _c(
+                "swiper-slide",
+                { key: "" + item.name },
+                [_c("LidersCard", { attrs: { item: item } })],
+                1
+              )
             }),
             1
           )
@@ -13744,8 +13845,13 @@ var render = function() {
               staticClass: "serials__wrapper",
               attrs: { options: _vm.swiperOption3 }
             },
-            _vm._l(3, function(card) {
-              return _c("swiper-slide", { key: card }, [_c("SerialCard")], 1)
+            _vm._l(_vm.cards, function(card) {
+              return _c(
+                "swiper-slide",
+                { key: card.name },
+                [_c("SerialCard", { attrs: { item: card } })],
+                1
+              )
             }),
             1
           )
@@ -13769,8 +13875,13 @@ var render = function() {
               staticClass: "thematic__wrapper",
               attrs: { options: _vm.swiperOption4 }
             },
-            _vm._l(6, function(card) {
-              return _c("swiper-slide", { key: card }, [_c("ThematicCard")], 1)
+            _vm._l(_vm.thematics, function(theme) {
+              return _c(
+                "swiper-slide",
+                { key: theme.name },
+                [_c("ThematicCard", { attrs: { item: theme } })],
+                1
+              )
             }),
             1
           )

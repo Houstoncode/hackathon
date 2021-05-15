@@ -1,14 +1,15 @@
 <template>
     <router-link
-        to="/filmdetail/:key"
-        class="leaders-card leaders-card__preview"
+        to="/factsdetail"
+        class="leaders-card"
+        :class="{ 'leaders-card__preview': item.is_premier }"
     >
         <div
             class="leaders-card__top"
-            :style="{ backgroundImage: `url(&quot;${imgUrl}&quot;)` }"
+            :style="{ backgroundImage: `url(${item.image_href})` }"
         ></div>
         <div class="leaders-card__bottom">
-            Райя и последний дракон
+            {{ item.name }}
         </div>
     </router-link>
 </template>
@@ -20,6 +21,12 @@ export default {
         return {
             imgUrl: "img/evidence/item-1.jpg"
         };
+    },
+    props: {
+        item: {
+            required: true,
+            default: {}
+        }
     }
 };
 </script>

@@ -33,12 +33,19 @@
 <script>
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { mapActions } from "vuex";
 
 export default {
     name: "app",
     components: {
         Header,
         Footer
+    },
+    methods: {
+        ...mapActions(["fetchFilms"])
+    },
+    mounted() {
+        this.fetchFilms();
     }
 };
 </script>

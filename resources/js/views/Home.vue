@@ -3,8 +3,8 @@
         <section class="film">
             <div class="container">
                 <swiper class="swiper" :options="swiperOption">
-                    <swiper-slide v-for="slide in 5" :key="slide"
-                        ><FilmInfo />
+                    <swiper-slide v-for="item in getFilms" :key="item.name"
+                        ><FilmInfo :item="item" />
                     </swiper-slide>
                     <div class="swiper-button-prev" slot="button-prev">
                         <img src="img/arrow-left.png" alt="" />
@@ -20,8 +20,11 @@
             <div class="container">
                 <div class="leaders__title">Лидеры просмотров</div>
                 <swiper :options="swiperOption2">
-                    <swiper-slide v-for="slide in 6" :key="slide">
-                        <LidersCard />
+                    <swiper-slide
+                        v-for="item in getPopularViews"
+                        :key="`${item.name}`"
+                    >
+                        <LidersCard :item="item" />
                     </swiper-slide>
                 </swiper>
             </div>
@@ -31,8 +34,8 @@
             <div class="container">
                 <div class="serials__title">Самые интересные подборки</div>
                 <swiper class="serials__wrapper" :options="swiperOption3">
-                    <swiper-slide v-for="card in 3" :key="card">
-                        <SerialCard />
+                    <swiper-slide v-for="card in cards" :key="card.name">
+                        <SerialCard :item="card" />
                     </swiper-slide>
                 </swiper>
             </div>
@@ -42,8 +45,8 @@
             <div class="container">
                 <div class="thematic__title">Тематические разделы</div>
                 <swiper class="thematic__wrapper" :options="swiperOption4">
-                    <swiper-slide v-for="card in 6" :key="card">
-                        <ThematicCard />
+                    <swiper-slide v-for="theme in thematics" :key="theme.name">
+                        <ThematicCard :item="theme" />
                     </swiper-slide>
                 </swiper>
             </div>
@@ -59,11 +62,55 @@ import ThematicCard from "../components/liders/ThematicCard";
 
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import "swiper/swiper-bundle.css";
+import { mapGetters } from "vuex";
 
 export default {
     name: "home",
     data() {
         return {
+            cards: [
+                {
+                    id: 1,
+                    name: "Фильмы про роботов и киборгов",
+                    subtitle: "Роботы"
+                },
+                {
+                    id: 2,
+                    name: "Любит не любит",
+                    subtitle: "Российские ромкомы"
+                },
+                {
+                    id: 3,
+                    name: "Фильмы про акул",
+                    subtitle: "Подводный ужас"
+                }
+            ],
+            thematics: [
+                {
+                    id: 1,
+                    name: "NHL. Все матчи"
+                },
+                {
+                    id: 2,
+                    name: "Академия"
+                },
+                {
+                    id: 3,
+                    name: "ТВ-шоу"
+                },
+                {
+                    id: 4,
+                    name: "Концерты"
+                },
+                {
+                    id: 5,
+                    name: "Путешествие"
+                },
+                {
+                    id: 6,
+                    name: "Караоке"
+                }
+            ],
             swiperOption: {
                 slidesPerView: 1,
                 navigation: {
@@ -96,6 +143,9 @@ export default {
                 }
             }
         };
+    },
+    computed: {
+        ...mapGetters(["getPopularViews", "getFilms"])
     },
     components: {
         FilmInfo,
