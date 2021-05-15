@@ -30,6 +30,8 @@ window.Vue = require('vue').default;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+Vue.component('main-component', require('./views/App.vue').default);
+
 const app = new Vue({
     el: '#app',
     router: router,
