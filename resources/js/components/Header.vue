@@ -32,20 +32,26 @@
                 <div class="header__right-img">
                     <img src="img/exit-icon.png" alt="" />
                 </div>
-                <button class="header__right-link header__right-login">
+                <button
+                    class="header__right-link header__right-login"
+                    @click="openAuth('Auth')"
+                >
                     Вход
                 </button>
                 <div class="header__right-line">|</div>
                 <button
                     class="header__right-link header__right header__right-register"
+                    @click="openAuth('Register')"
                 >
                     Регистрация
                 </button>
             </div>
         </div>
 
-        <Login />
-        <Register />
+        <div class="entrance">
+            <Login v-if="entrance == 'auth'" @closeModel="entrance = ''" />
+            <Register v-if="entrance == 'reg'" @closeModel="entrance = ''" />
+        </div>
     </header>
 </template>
 
@@ -54,9 +60,19 @@ import Login from "./header/Login";
 import Register from "./header/Register";
 
 export default {
+    data() {
+        return {
+            entrance: ""
+        };
+    },
     components: {
         Login,
         Register
+    },
+    methods: {
+        openAuth(type) {
+            type == "Auth" ? (this.entrance = "auth") : (this.entrance = "reg");
+        }
     }
 };
 </script>
