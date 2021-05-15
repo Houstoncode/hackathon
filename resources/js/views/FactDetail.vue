@@ -13,6 +13,8 @@
                 </div>
             </div>
         </div>
+
+        <button class="facts__btn">Ответить</button>
     </div>
 </template>
 
