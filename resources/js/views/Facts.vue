@@ -1,6 +1,6 @@
 <template>
     <div class="facts">
-        <FilmInfo />
+        <FilmInfo :item="getFirstFilm" />
 
         <div class="facts__block">
             <div class="container">
@@ -9,7 +9,7 @@
                     Коллекции фильмов и сериалов: кассовые
                 </div>
                 <div class="facts__wrapper">
-                    <FactsInfo v-for="card in 9" :key="card" />
+                    <FactsCard v-for="card in 1" :key="card"  />
                 </div>
             </div>
         </div>
@@ -18,12 +18,16 @@
 
 <script>
 import FilmInfo from "../components/FilmInfo";
-import FactsInfo from "../components/FactsCard";
+import FactsCard from "../components/FactsCard";
+import { mapGetters } from "vuex";
 
 export default {
     components: {
         FilmInfo,
-        FactsInfo
+        FactsCard
+    },
+    computed: {
+        ...mapGetters(["getFirstFilm"])
     }
 };
 </script>

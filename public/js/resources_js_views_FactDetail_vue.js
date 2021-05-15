@@ -11,6 +11,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -55,14 +62,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FactsDetail",
+  props: {
+    item: {
+      required: true
+    },
+    index: {
+      required: true
+    },
+    counts: {
+      required: true
+    }
+  },
   data: function data() {
     return {
       imgUrl: "img/factsdetail/item-1.jpg"
     };
-  }
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["getFirstFilm"]))
 });
 
 /***/ }),
@@ -157,6 +176,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/FilmInfo */ "./resources/js/components/FilmInfo.vue");
 /* harmony import */ var _components_FactsCardDetail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/FactsCardDetail */ "./resources/js/components/FactsCardDetail.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -177,13 +203,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     FilmInfo: _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__.default,
     FactsCardDetail: _components_FactsCardDetail__WEBPACK_IMPORTED_MODULE_1__.default
-  }
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(["getFirstFilm"]))
 });
 
 /***/ }),
@@ -428,75 +462,66 @@ var render = function() {
         style: { backgroundImage: "url(" + _vm.imgUrl + ")" }
       },
       [
-        _vm._m(0),
+        _c("div", { staticClass: "facts-card-detail__count" }, [
+          _c("div", { staticClass: "facts-card-detail__title" }, [
+            _vm._v("Факт")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "facts-card-detail__index" }, [
+            _c("div", [_vm._v(_vm._s(_vm.index + 1))]),
+            _vm._v(" "),
+            _c("div", [_vm._v("/")]),
+            _vm._v(" "),
+            _c("div", [_vm._v(_vm._s(_vm.counts))])
+          ])
+        ]),
         _vm._v(" "),
         _c("div", { staticClass: "facts-card-detail__text" }, [
-          _vm._v(
-            "\n            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut\n            aliquam, purus sit amet luctus venenatis, lectus magna fringilla\n            urna, porttitor rhoncus dolor purus non enim praesent elementum\n            facilisis leo, vel\n        "
-          )
+          _vm._v("\n            " + _vm._s(_vm.item.description) + "\n        ")
         ])
       ]
     ),
     _vm._v(" "),
-    _vm._m(1)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "facts-card-detail__count" }, [
-      _c("div", { staticClass: "facts-card-detail__title" }, [_vm._v("Факт")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "facts-card-detail__index" }, [
-        _c("div", [_vm._v("1")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("/")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("5")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "facts-card-detail__bottom" }, [
+    _c("div", { staticClass: "facts-card-detail__bottom" }, [
       _c("div", { staticClass: "facts-card-detail__bottom-text" }, [
         _vm._v("\n            Выберите правильный ответ:\n        ")
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "facts-card-detail__bottom-block" }, [
-        _c("div", { staticClass: "facts-card-detail__bottom-block_item" }, [
-          _c("div", { staticClass: "form_radio" }, [
-            _c("input", {
-              attrs: { id: "radio-1", type: "radio", name: "radio" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "radio-1" } }, [_vm._v("Ответ 1")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form_radio" }, [
-            _c("input", {
-              attrs: { id: "radio-2", type: "radio", name: "radio" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "radio-2" } }, [_vm._v("Ответ 2")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form_radio" }, [
-            _c("input", {
-              attrs: { id: "radio-3", type: "radio", name: "radio" }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "radio-3" } }, [_vm._v("Ответ 3")])
-          ])
-        ])
+        _c(
+          "div",
+          { staticClass: "facts-card-detail__bottom-block_item" },
+          _vm._l(_vm.item.answers, function(question, indexQuestion) {
+            return _c(
+              "div",
+              {
+                key: _vm.index + "." + indexQuestion,
+                staticClass: "form_radio"
+              },
+              [
+                _c("input", {
+                  attrs: {
+                    id: _vm.index + "." + indexQuestion,
+                    type: "radio",
+                    name: _vm.index + "." + indexQuestion
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { attrs: { for: _vm.index + "." + indexQuestion } },
+                  [_vm._v(_vm._s(question.text))]
+                )
+              ]
+            )
+          }),
+          0
+        )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -639,7 +664,7 @@ var render = function() {
     "div",
     { staticClass: "facts" },
     [
-      _c("FilmInfo"),
+      _c("FilmInfo", { attrs: { item: _vm.getFirstFilm } }),
       _vm._v(" "),
       _c("div", { staticClass: "facts__block" }, [
         _c("div", { staticClass: "container" }, [
@@ -654,8 +679,15 @@ var render = function() {
           _c(
             "div",
             { staticClass: "facts__wrapper" },
-            _vm._l(9, function(card) {
-              return _c("FactsCardDetail", { key: card })
+            _vm._l(_vm.getFirstFilm.tasks, function(question, index) {
+              return _c("FactsCardDetail", {
+                key: index,
+                attrs: {
+                  item: question,
+                  index: index,
+                  counts: _vm.getFirstFilm.tasks.length
+                }
+              })
             }),
             1
           )

@@ -7,16 +7,13 @@
             <div class="facts-card-detail__count">
                 <div class="facts-card-detail__title">Факт</div>
                 <div class="facts-card-detail__index">
-                    <div>1</div>
+                    <div>{{ index + 1 }}</div>
                     <div>/</div>
-                    <div>5</div>
+                    <div>{{ counts }}</div>
                 </div>
             </div>
             <div class="facts-card-detail__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit ut
-                aliquam, purus sit amet luctus venenatis, lectus magna fringilla
-                urna, porttitor rhoncus dolor purus non enim praesent elementum
-                facilisis leo, vel
+                {{ item.description }}
             </div>
         </div>
         <div class="facts-card-detail__bottom">
@@ -25,17 +22,19 @@
             </div>
             <div class="facts-card-detail__bottom-block">
                 <div class="facts-card-detail__bottom-block_item">
-                    <div class="form_radio">
-                        <input id="radio-1" type="radio" name="radio" />
-                        <label for="radio-1">Ответ 1</label>
-                    </div>
-                    <div class="form_radio">
-                        <input id="radio-2" type="radio" name="radio" />
-                        <label for="radio-2">Ответ 2</label>
-                    </div>
-                    <div class="form_radio">
-                        <input id="radio-3" type="radio" name="radio" />
-                        <label for="radio-3">Ответ 3</label>
+                    <div
+                        class="form_radio"
+                        v-for="(question, indexQuestion) in item.answers"
+                        :key="`${index}.${indexQuestion}`"
+                    >
+                        <input
+                            :id="`${index}.${indexQuestion}`"
+                            type="radio"
+                            :name="`${index}.${indexQuestion}`"
+                        />
+                        <label :for="`${index}.${indexQuestion}`">{{
+                            question.text
+                        }}</label>
                     </div>
                 </div>
             </div>
@@ -44,12 +43,27 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
     name: "FactsDetail",
+    props: {
+        item: {
+            required: true
+        },
+        index: {
+            required: true
+        },
+        counts: {
+            required: true
+        }
+    },
     data() {
         return {
             imgUrl: "img/factsdetail/item-1.jpg"
         };
+    },
+    computed: {
+        ...mapGetters(["getFirstFilm"])
     }
 };
 </script>
