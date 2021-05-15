@@ -2,7 +2,7 @@
     <router-link to="/serialdetail/:key" class="serial-card serial-card__age">
         <div
             class="serial-card__top"
-            :style="{ backgroundImage: `url(&quot;${imgUrl}&quot;)` }"
+            :style="{ backgroundImage: `url(${imgUrl})` }"
         >
             <div class="serial-card__bottom">
                 <div class="serial-card__bottom-title">Любит не любит</div>

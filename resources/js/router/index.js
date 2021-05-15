@@ -12,9 +12,14 @@ const router = new VueRouter({
       component: () => import('../views/Home')
     },
     {
-      path: '/fact',
-      name: 'fact',
-      component: () => import('../views/Fact')
+      path: '/facts',
+      name: 'facts',
+      component: () => import('../views/Facts')
+    },
+    {
+      path: '/factsdetail',
+      name: 'factsdetail',
+      component: () => import('../views/FactDetail')
     },
   ],
 });

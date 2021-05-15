@@ -1857,6 +1857,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1984,10 +2006,16 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
       return __webpack_require__.e(/*! import() */ "resources_js_views_Home_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Home */ "./resources/js/views/Home.vue"));
     }
   }, {
-    path: '/fact',
-    name: 'fact',
+    path: '/facts',
+    name: 'facts',
     component: function component() {
-      return __webpack_require__.e(/*! import() */ "resources_js_views_Fact_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Fact */ "./resources/js/views/Fact.vue"));
+      return __webpack_require__.e(/*! import() */ "resources_js_views_Facts_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Facts */ "./resources/js/views/Facts.vue"));
+    }
+  }, {
+    path: '/factsdetail',
+    name: 'factsdetail',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_views_FactDetail_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/FactDetail */ "./resources/js/views/FactDetail.vue"));
     }
   }]
 });
@@ -37798,11 +37826,50 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "main" },
-    [_c("Header"), _vm._v(" "), _c("router-view"), _vm._v(" "), _c("Footer")],
+    [
+      _c("Header"),
+      _vm._v(" "),
+      _c("router-view"),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("Footer")
+    ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "pather" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "pather__wrapper" }, [
+          _c("div", { staticClass: "pather__wrapper-item" }, [
+            _c("img", { attrs: { src: "img/pather/item-1.png", alt: "" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pather__wrapper-item" }, [
+            _c("img", { attrs: { src: "img/pather/item-2.png", alt: "" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pather__wrapper-item" }, [
+            _c("img", { attrs: { src: "img/pather/item-3.png", alt: "" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pather__wrapper-item" }, [
+            _c("img", { attrs: { src: "img/pather/item-4.png", alt: "" } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "pather__wrapper-item" }, [
+            _c("img", { attrs: { src: "img/pather/item-5.png", alt: "" } })
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -54442,7 +54509,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_Home_vue":1,"resources_js_views_Fact_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_Home_vue":1,"resources_js_views_Facts_vue":1,"resources_js_views_FactDetail_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
