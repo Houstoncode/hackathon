@@ -589,6 +589,7 @@ button {
   position: absolute;
   top: 20px;
   right: 20px;
+  display: block !important;
 }
 .auth__title {
   font-size: 28px;
@@ -738,10 +739,23 @@ button {
   display: none;
 }
 
+.header-menu {
+  overflow: hidden;
+}
 .header-menu .menu {
   transform: translateX(0);
+  z-index: 200;
 }
 
+@media (max-width: 1200px) {
+  .pather__wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pather__wrapper-item {
+    margin: 10px;
+  }
+}
 @media (max-width: 1050px) {
   .header .container {
     padding: 0;
@@ -754,6 +768,21 @@ button {
   }
 }
 @media (max-width: 850px) {
+  .facts-card-detail__top {
+    height: 295px;
+  }
+
+  .facts-card-detail__text {
+    padding-left: 5px;
+    margin-top: 15px;
+  }
+
+  .facts-card-detail__bottom {
+    padding: 0;
+    margin-top: 10px;
+    margin-left: 5px;
+  }
+
   .bar {
     display: flex;
   }
@@ -798,5 +827,167 @@ button {
 
   .header {
     padding: 8px 0q q;
+  }
+}
+@media (max-width: 700px) {
+  .footer__top-ul {
+    flex-wrap: wrap;
+  }
+
+  .pather__wrapper-item {
+    width: 30%;
+  }
+  .pather__wrapper-item img {
+    width: 100%;
+  }
+
+  .swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
+  }
+
+  .film-info {
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .facts-card-detail__text {
+    font-size: 20px;
+    line-height: 23px;
+  }
+
+  .facts-card-detail__title,
+.facts-card-detail__index {
+    font-size: 29px;
+    line-height: 22px;
+  }
+
+  .thematic .swiper-wrapper {
+    padding-bottom: 40px;
+  }
+
+  .pather {
+    margin-top: 0;
+  }
+
+  .pather__wrapper-item {
+    width: 20%;
+  }
+
+  .footer {
+    margin-top: 0;
+  }
+
+  .pather {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 500px) {
+  .facts-card-detail__top {
+    height: 240px;
+    padding: 10px;
+  }
+
+  .facts__block {
+    margin-top: 20px;
+  }
+
+  .form_radio {
+    margin-left: 0;
+  }
+
+  .form_radio label:before {
+    width: 20px;
+    height: 20px;
+  }
+
+  .form_radio label {
+    padding-left: 30px;
+  }
+
+  .facts-card-detail__bottom-text {
+    font-size: 20px;
+    line-height: 21px;
+  }
+
+  .facts-card-detail__title,
+.facts-card-detail__index {
+    font-size: 23px;
+    line-height: 19px;
+  }
+
+  .film-info__wrapper {
+    flex-direction: column;
+  }
+
+  .facts {
+    text-align: left;
+    width: 96%;
+    margin: 0 auto;
+  }
+
+  .facts-card-detail {
+    margin-bottom: 15px;
+  }
+  .facts-card-detail:last-child {
+    margin-bottom: 0;
+  }
+
+  .facts__btn {
+    width: 145px;
+    height: 40px;
+    font-size: 22px;
+    margin-top: 10px;
+  }
+
+  .facts {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .film-info__wrapper {
+    text-align: left;
+  }
+
+  .form_radio label {
+    font-size: 16px;
+  }
+
+  .facts__title {
+    font-size: 32px;
+    line-height: 35px;
+  }
+}
+@media (max-width: 400px) {
+  .facts-card-detail__text {
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 8px;
+  }
+
+  .facts-card-detail__title,
+.facts-card-detail__index {
+    font-size: 20px;
+  }
+
+  .facts-card-detail__top {
+    height: 195px;
+  }
+
+  .film-info__wrapper-title {
+    font-size: 34px;
+    line-height: 36px;
+  }
+
+  .film-info {
+    padding: 10px 0;
+  }
+
+  .film-info__wrapper-info_item:first-child {
+    margin-left: 0;
+  }
+
+  .header__right button {
+    font-size: 14px;
   }
 }

@@ -375,11 +375,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       },
       swiperOption2: {
-        slidesPerView: 6,
         spaceBetween: 10,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          1100: {
+            slidesPerView: 6
+          },
+          700: {
+            slidesPerView: 4
+          },
+          450: {
+            slidesPerView: 2
+          },
+          320: {
+            slidesPerView: 1
+          }
         }
       },
       swiperOption3: {
@@ -388,6 +401,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          1000: {
+            slidesPerView: 3
+          },
+          700: {
+            slidesPerView: 2
+          },
+          320: {
+            slidesPerView: 1
+          }
         }
       },
       swiperOption4: {
@@ -396,6 +420,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          1100: {
+            slidesPerView: 6
+          },
+          700: {
+            slidesPerView: 4
+          },
+          450: {
+            slidesPerView: 2
+          },
+          320: {
+            slidesPerView: 1
+          }
         }
       }
     };
