@@ -236,6 +236,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
 
@@ -901,11 +903,18 @@ var render = function() {
         [_vm._v("\n        Ответить\n    ")]
       ),
       _vm._v(" "),
-      _vm.modelResult
-        ? _c("FactsResult", {
-            on: { handleHiddenFactsResilt: _vm.handleHiddenFactsResilt }
-          })
-        : _vm._e()
+      _c(
+        "transition",
+        { attrs: { name: "fade" } },
+        [
+          _vm.modelResult
+            ? _c("FactsResult", {
+                on: { handleHiddenFactsResilt: _vm.handleHiddenFactsResilt }
+              })
+            : _vm._e()
+        ],
+        1
+      )
     ],
     1
   )

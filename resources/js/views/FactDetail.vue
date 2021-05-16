@@ -25,10 +25,12 @@
             Ответить
         </button>
 
-        <FactsResult
-            v-if="modelResult"
-            @handleHiddenFactsResilt="handleHiddenFactsResilt"
-        />
+        <transition name="fade">
+            <FactsResult
+                v-if="modelResult"
+                @handleHiddenFactsResilt="handleHiddenFactsResilt"
+            />
+        </transition>
     </div>
 </template>
 
