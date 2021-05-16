@@ -157,9 +157,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     countAnswers: {
@@ -868,7 +865,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "facts-result facts-result__loss",
+      staticClass: "facts-result",
       class: { "facts-result__loss": _vm.isFailed }
     },
     [

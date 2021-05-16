@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="facts-result facts-result__loss"
-        :class="{ 'facts-result__loss': isFailed }"
-    >
+    <div class="facts-result" :class="{ 'facts-result__loss': isFailed }">
         <button class="auth__close" @click="$emit('handleHiddenFactsResilt')">
             <img src="img/close-icon.png" alt="" />
         </button>
