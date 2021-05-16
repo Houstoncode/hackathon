@@ -6,6 +6,9 @@
                     <img src="img/logo.png" alt="" />
                 </a>
                 <nav class="menu">
+                    <button class="auth__close" @click="handleCloseMobileMenu">
+                        <img src="img/close-icon.png" alt="" />
+                    </button>
                     <ul class="menu__ul">
                         <li class="menu__list">
                             <a href="#" class="menu__list-link">Фильмы</a>
@@ -45,12 +48,17 @@
                 >
                     Регистрация
                 </button>
+                <button class="bar" @click="handleOpenMobileMenu">
+                    <div class="bar__item"></div>
+                    <div class="bar__item"></div>
+                    <div class="bar__item"></div>
+                </button>
             </div>
         </div>
 
         <div class="entrance">
-            <Login v-if="entrance == 'auth'" @closeModel="entrance = ''" />
-            <Register v-if="entrance == 'reg'" @closeModel="entrance = ''" />
+            <Login v-if="entrance == 'auth'" @closeModel="closeAuth" />
+            <Register v-if="entrance == 'reg'" @closeModel="closeAuth" />
         </div>
     </header>
 </template>
@@ -71,7 +79,18 @@ export default {
     },
     methods: {
         openAuth(type) {
+            document.querySelector("body").style.overflow = "hidden";
             type == "Auth" ? (this.entrance = "auth") : (this.entrance = "reg");
+        },
+        closeAuth() {
+            document.querySelector("body").style.overflow = "auto";
+            this.entrance = "";
+        },
+        handleOpenMobileMenu() {
+            document.querySelector("body").classList.add("header-menu");
+        },
+        handleCloseMobileMenu() {
+            document.querySelector("body").classList.remove("header-menu");
         }
     }
 };
