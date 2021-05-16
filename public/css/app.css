@@ -106,6 +106,15 @@ button {
   width: 100%;
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 .film-info {
   position: relative;
   height: 365px;
@@ -118,13 +127,13 @@ button {
   color: #fff;
   font-family: "RostelecomBasisBold";
   padding: 0px 60px 34px 60px;
-  border-radius: 8px;
+  border-radius: 40px;
 }
 .film-info:before {
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 8px;
+  border-radius: 40px;
   content: "";
   width: 100%;
   height: 100%;
@@ -735,8 +744,16 @@ button {
   height: 2px;
 }
 
-.header .auth__close {
+.menu .auth__close {
+  display: none !important;
+}
+
+.menu .auth__close {
   display: none;
+}
+
+.auth__close {
+  z-index: 40;
 }
 
 .header-menu {
@@ -745,6 +762,9 @@ button {
 .header-menu .menu {
   transform: translateX(0);
   z-index: 200;
+}
+.header-menu .auth__close {
+  display: block !important;
 }
 
 @media (max-width: 1200px) {
@@ -829,6 +849,29 @@ button {
     padding: 8px 0q q;
   }
 }
+@media (max-width: 750px) {
+  .auth,
+.facts-result {
+    width: 95%;
+    padding: 30px;
+  }
+
+  .facts-result__wrapper-points:before {
+    display: none;
+  }
+
+  .auth__img img {
+    width: 40px;
+  }
+
+  .auth__form input[type=submit] {
+    height: 45px;
+  }
+
+  .facts-result__wrapper-points {
+    padding-bottom: 20px;
+  }
+}
 @media (max-width: 700px) {
   .footer__top-ul {
     flex-wrap: wrap;
@@ -883,6 +926,43 @@ button {
   }
 }
 @media (max-width: 500px) {
+  .auth,
+.facts-result {
+    padding: 15px;
+  }
+  .auth .auth__close,
+.facts-result .auth__close {
+    top: 5px;
+    right: 5px;
+  }
+  .auth .auth__close img,
+.facts-result .auth__close img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .facts-result__wrapper-title {
+    font-size: 15px;
+  }
+
+  .facts-result__wrapper-subtitle {
+    font-size: 14px;
+  }
+
+  .facts-result__wrapper-btn {
+    font-size: 15px;
+  }
+
+  .facts-result__wrapper-points {
+    font-size: 35px;
+    line-height: 40px;
+    margin-bottom: 0;
+  }
+
+  .auth__img {
+    display: none;
+  }
+
   .facts-card-detail__top {
     height: 240px;
     padding: 10px;
@@ -963,6 +1043,25 @@ button {
     font-size: 16px;
     line-height: 20px;
     margin-top: 8px;
+  }
+
+  .auth__title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .auth__form input {
+    padding: 5px;
+  }
+
+  .auth__subtitle {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .auth__form input[type=submit] {
+    height: 35px;
+    font-size: 16px;
   }
 
   .facts-card-detail__title,

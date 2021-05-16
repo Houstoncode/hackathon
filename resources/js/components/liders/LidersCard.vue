@@ -1,6 +1,6 @@
 <template>
     <router-link
-        to="/factsdetail"
+        to="/facts"
         class="leaders-card"
         :class="{ 'leaders-card__preview': item.is_premier }"
     >

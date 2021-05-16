@@ -57,8 +57,10 @@
         </div>
 
         <div class="entrance">
-            <Login v-if="entrance == 'auth'" @closeModel="closeAuth" />
-            <Register v-if="entrance == 'reg'" @closeModel="closeAuth" />
+            <transition name="fade">
+                <Login v-if="entrance == 'auth'" @closeModel="closeAuth" />
+                <Register v-if="entrance == 'reg'" @closeModel="closeAuth" />
+            </transition>
         </div>
     </header>
 </template>
