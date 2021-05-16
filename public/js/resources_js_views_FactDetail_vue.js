@@ -62,6 +62,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FactsDetail",
@@ -80,6 +89,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return {
       imgUrl: "img/factsdetail/item-1.jpg"
     };
+  },
+  methods: {
+    handleInput: function handleInput(value, idx) {
+      if (value === "on") value = true;else false;
+      var obj = {};
+      this.item.answers.forEach(function (element, index) {
+        obj[index] = index === idx ? value : false;
+      });
+      this.$emit("input", obj);
+    }
   },
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapGetters)(["getFirstFilm"]))
 });
@@ -175,7 +194,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/FilmInfo */ "./resources/js/components/FilmInfo.vue");
 /* harmony import */ var _components_FactsCardDetail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/FactsCardDetail */ "./resources/js/components/FactsCardDetail.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _components_FactsResult__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/FactsResult */ "./resources/js/components/FactsResult.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -208,15 +228,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      answers: {}
+    };
+  },
   components: {
     FilmInfo: _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__.default,
-    FactsCardDetail: _components_FactsCardDetail__WEBPACK_IMPORTED_MODULE_1__.default
+    FactsCardDetail: _components_FactsCardDetail__WEBPACK_IMPORTED_MODULE_1__.default,
+    FactsResult: _components_FactsResult__WEBPACK_IMPORTED_MODULE_2__.default
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_2__.mapGetters)(["getFirstFilm"]))
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)(["getFirstFilm"]))
 });
 
 /***/ }),
@@ -512,7 +542,9 @@ var render = function() {
       "div",
       {
         staticClass: "facts-card-detail__top",
-        style: { backgroundImage: "url(" + _vm.imgUrl + ")" }
+        style: {
+          backgroundImage: "url(img/questions/wf_" + (_vm.index + 1) + ".png)"
+        }
       },
       [
         _c("div", { staticClass: "facts-card-detail__count" }, [
@@ -556,7 +588,12 @@ var render = function() {
                   attrs: {
                     id: _vm.index + "." + indexQuestion,
                     type: "radio",
-                    name: _vm.index + "." + indexQuestion
+                    name: "" + _vm.index
+                  },
+                  on: {
+                    input: function(event) {
+                      return _vm.handleInput(event.target.value, indexQuestion)
+                    }
                   }
                 }),
                 _vm._v(" "),
@@ -814,6 +851,13 @@ var render = function() {
                   item: question,
                   index: index,
                   counts: _vm.getFirstFilm.tasks.length
+                },
+                model: {
+                  value: _vm.answers[index + 1],
+                  callback: function($$v) {
+                    _vm.$set(_vm.answers, index + 1, $$v)
+                  },
+                  expression: "answers[index + 1]"
                 }
               })
             }),
