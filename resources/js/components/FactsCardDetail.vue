@@ -74,9 +74,9 @@ export default {
     methods: {
         handleInput(value, idx) {
             if (value === "on") value = true;
-            else false;
+            else value = false;
 
-            const obj = {};
+            const obj = [];
 
             this.item.answers.forEach((element, index) => {
                 obj[index] = index === idx ? value : false;

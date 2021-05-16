@@ -19,4 +19,28 @@ class SiteController extends Controller
             'films' => FilmResource::collection(Film::all())
         ]);
     }
+
+    public function verifyTest(Request $request) {
+        $tasks = Film::all()->first()->tasks;
+
+        $obj = [];
+
+        foreach($tasks as $index=>$task) {
+            foreach ($task->answers as $key=>$answer) {
+                if($answer->is_answer) {
+                    $obj[$index] = $key;
+                }
+            }
+        }
+
+        $count = 0;
+
+        foreach ($request->answers as $key=>$answer) {
+            if($answer[$obj[$key]] === true) {
+                $count += 1;
+            }
+        }
+
+        return response()->json(['data' => ['countAnswers' => $count]]);
+    }
 }

@@ -2208,14 +2208,24 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
     name: "facts",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_Facts_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/Facts */ "./resources/js/views/Facts.vue"));
+    },
+    meta: {
+      title: "Wink Promo - Факты"
     }
   }, {
     path: "/factsdetail",
     name: "factsdetail",
     component: function component() {
       return __webpack_require__.e(/*! import() */ "resources_js_views_FactDetail_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../views/FactDetail */ "./resources/js/views/FactDetail.vue"));
+    },
+    meta: {
+      title: "Wink Promo - Факты"
     }
   }]
+});
+router.beforeEach(function (toRoute, fromRoute, next) {
+  window.document.title = toRoute.meta && toRoute.meta.title ? toRoute.meta.title : "Wink Promo";
+  next();
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
 
@@ -39046,25 +39056,34 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("header", { staticClass: "header" }, [
     _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "header__left" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("nav", { staticClass: "menu" }, [
+      _c(
+        "div",
+        { staticClass: "header__left" },
+        [
           _c(
-            "button",
-            {
-              staticClass: "auth__close",
-              on: { click: _vm.handleCloseMobileMenu }
-            },
-            [_c("img", { attrs: { src: "img/close-icon.png", alt: "" } })]
+            "router-link",
+            { staticClass: "header__logo", attrs: { to: "/" } },
+            [_c("img", { attrs: { src: "img/logo.png", alt: "" } })]
           ),
           _vm._v(" "),
-          _vm._m(1)
-        ])
-      ]),
+          _c("nav", { staticClass: "menu" }, [
+            _c(
+              "button",
+              {
+                staticClass: "auth__close",
+                on: { click: _vm.handleCloseMobileMenu }
+              },
+              [_c("img", { attrs: { src: "img/close-icon.png", alt: "" } })]
+            ),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ],
+        1
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "header__right" }, [
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c(
           "button",
@@ -39133,14 +39152,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "header__logo", attrs: { href: "/" } }, [
-      _c("img", { attrs: { src: "img/logo.png", alt: "" } })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

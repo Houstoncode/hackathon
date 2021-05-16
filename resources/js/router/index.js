@@ -17,14 +17,27 @@ const router = new VueRouter({
         {
             path: "/facts",
             name: "facts",
-            component: () => import("../views/Facts")
+            component: () => import("../views/Facts"),
+            meta: {
+                title: "Wink Promo - Факты"
+            }
         },
         {
             path: "/factsdetail",
             name: "factsdetail",
-            component: () => import("../views/FactDetail")
+            component: () => import("../views/FactDetail"),
+            meta: {
+                title: "Wink Promo - Факты"
+            }
         }
     ]
+});
+
+router.beforeEach((toRoute, fromRoute, next) => {
+    window.document.title =
+        toRoute.meta && toRoute.meta.title ? toRoute.meta.title : "Wink Promo";
+
+    next();
 });
 
 export default router;
