@@ -11,6 +11,7 @@
                 <div class="facts__wrapper">
                     <FactsCardDetail
                         v-for="(question, index) in getFirstFilm.tasks"
+                        v-model="answers[index + 1]"
                         :item="question"
                         :index="index"
                         :counts="getFirstFilm.tasks.length"
@@ -33,6 +34,11 @@ import { mapGetters } from "vuex";
 import FactsResult from "../components/FactsResult";
 
 export default {
+    data() {
+        return {
+            answers: {}
+        };
+    },
     components: {
         FilmInfo,
         FactsCardDetail,

@@ -2,7 +2,9 @@
     <div class="facts-card-detail">
         <div
             class="facts-card-detail__top"
-            :style="{ backgroundImage: `url(${imgUrl})` }"
+            :style="{
+                backgroundImage: `url(img/questions/wf_${index + 1}.png)`
+            }"
         >
             <div class="facts-card-detail__count">
                 <div class="facts-card-detail__title">Факт</div>
@@ -30,7 +32,14 @@
                         <input
                             :id="`${index}.${indexQuestion}`"
                             type="radio"
-                            :name="`${index}.${indexQuestion}`"
+                            :name="`${index}`"
+                            @input="
+                                event =>
+                                    handleInput(
+                                        event.target.value,
+                                        indexQuestion
+                                    )
+                            "
                         />
                         <label :for="`${index}.${indexQuestion}`">{{
                             question.text
@@ -61,6 +70,20 @@ export default {
         return {
             imgUrl: "img/factsdetail/item-1.jpg"
         };
+    },
+    methods: {
+        handleInput(value, idx) {
+            if (value === "on") value = true;
+            else false;
+
+            const obj = {};
+
+            this.item.answers.forEach((element, index) => {
+                obj[index] = index === idx ? value : false;
+            });
+
+            this.$emit("input", obj);
+        }
     },
     computed: {
         ...mapGetters(["getFirstFilm"])
