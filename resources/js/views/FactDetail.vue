@@ -55,7 +55,13 @@ export default {
     data() {
         return {
             modelResult: false,
-            answers: [],
+            answers: [
+                [false, false, false],
+                [false, false, false],
+                [false, false, false],
+                [false, false, false],
+                [false, false, false]
+            ],
             countAnswers: 0
         };
     },
@@ -104,6 +110,7 @@ export default {
 
             this.countAnswers = countAnswers;
             this.modelResult = true;
+
             document.querySelector("body").style.overflow = "hidden";
         },
         handleHiddenFactsResilt() {

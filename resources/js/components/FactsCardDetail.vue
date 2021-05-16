@@ -64,8 +64,10 @@ export default {
         },
         counts: {
             required: true
-        }
+        },
+        value: {}
     },
+
     data() {
         return {
             imgUrl: "img/factsdetail/item-1.jpg"

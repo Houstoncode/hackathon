@@ -30,7 +30,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {},
   data: function data() {
     return {
-      imgUrl: "img/facts/1.png"
+      imgUrl: "img/films/f_1.png"
     };
   }
 });

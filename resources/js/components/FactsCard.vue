@@ -18,7 +18,7 @@ export default {
     props: {},
     data() {
         return {
-            imgUrl: "img/facts/1.png"
+            imgUrl: "img/films/f_1.png"
         };
     }
 };
