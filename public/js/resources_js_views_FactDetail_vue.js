@@ -231,6 +231,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -246,7 +250,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     FactsCardDetail: _components_FactsCardDetail__WEBPACK_IMPORTED_MODULE_1__.default,
     FactsResult: _components_FactsResult__WEBPACK_IMPORTED_MODULE_2__.default
   },
-  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)(["getFirstFilm"]))
+  data: function data() {
+    return {
+      modelResult: false
+    };
+  },
+  computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)(["getFirstFilm"])),
+  methods: {
+    handleShowFactsResult: function handleShowFactsResult() {
+      this.modelResult = true;
+      document.querySelector("body").style.overflow = "hidden";
+    },
+    handleHiddenFactsResilt: function handleHiddenFactsResilt() {
+      this.modelResult = false;
+      document.querySelector("body").style.overflow = "auto";
+    }
+  }
 });
 
 /***/ }),
@@ -634,7 +653,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "facts-result" }, [
+  return _c("div", { staticClass: "facts-result facts-result__loss" }, [
+    _c(
+      "button",
+      {
+        staticClass: "auth__close",
+        on: {
+          click: function($event) {
+            return _vm.$emit("handleHiddenFactsResilt")
+          }
+        }
+      },
+      [_c("img", { attrs: { src: "img/close-icon.png", alt: "" } })]
+    ),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "facts-result__wrapper" },
@@ -866,9 +898,17 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("button", { staticClass: "facts__btn" }, [_vm._v("Ответить")]),
+      _c(
+        "button",
+        { staticClass: "facts__btn", on: { click: _vm.handleShowFactsResult } },
+        [_vm._v("\n        Ответить\n    ")]
+      ),
       _vm._v(" "),
-       false ? 0 : _vm._e()
+      _vm.modelResult
+        ? _c("FactsResult", {
+            on: { handleHiddenFactsResilt: _vm.handleHiddenFactsResilt }
+          })
+        : _vm._e()
     ],
     1
   )

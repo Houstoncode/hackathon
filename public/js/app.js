@@ -1915,6 +1915,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1929,7 +1937,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     openAuth: function openAuth(type) {
+      document.querySelector("body").style.overflow = "hidden";
       type == "Auth" ? this.entrance = "auth" : this.entrance = "reg";
+    },
+    closeAuth: function closeAuth() {
+      document.querySelector("body").style.overflow = "auto";
+      this.entrance = "";
+    },
+    handleOpenMobileMenu: function handleOpenMobileMenu() {
+      document.querySelector("body").classList.add("header-menu");
+    },
+    handleCloseMobileMenu: function handleCloseMobileMenu() {
+      document.querySelector("body").classList.remove("header-menu");
     }
   }
 });
@@ -38794,10 +38813,25 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("header", { staticClass: "header" }, [
     _c("div", { staticClass: "container" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "header__left" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("nav", { staticClass: "menu" }, [
+          _c(
+            "button",
+            {
+              staticClass: "auth__close",
+              on: { click: _vm.handleCloseMobileMenu }
+            },
+            [_c("img", { attrs: { src: "img/close-icon.png", alt: "" } })]
+          ),
+          _vm._v(" "),
+          _vm._m(1)
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "header__right" }, [
-        _vm._m(1),
+        _vm._m(2),
         _vm._v(" "),
         _c(
           "button",
@@ -38826,6 +38860,18 @@ var render = function() {
             }
           },
           [_vm._v("\n                Регистрация\n            ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "bar", on: { click: _vm.handleOpenMobileMenu } },
+          [
+            _c("div", { staticClass: "bar__item" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "bar__item" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "bar__item" })
+          ]
         )
       ])
     ]),
@@ -38835,23 +38881,11 @@ var render = function() {
       { staticClass: "entrance" },
       [
         _vm.entrance == "auth"
-          ? _c("Login", {
-              on: {
-                closeModel: function($event) {
-                  _vm.entrance = ""
-                }
-              }
-            })
+          ? _c("Login", { on: { closeModel: _vm.closeAuth } })
           : _vm._e(),
         _vm._v(" "),
         _vm.entrance == "reg"
-          ? _c("Register", {
-              on: {
-                closeModel: function($event) {
-                  _vm.entrance = ""
-                }
-              }
-            })
+          ? _c("Register", { on: { closeModel: _vm.closeAuth } })
           : _vm._e()
       ],
       1
@@ -38863,48 +38897,48 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header__left" }, [
-      _c("a", { staticClass: "header__logo", attrs: { href: "/" } }, [
-        _c("img", { attrs: { src: "img/logo.png", alt: "" } })
+    return _c("a", { staticClass: "header__logo", attrs: { href: "/" } }, [
+      _c("img", { attrs: { src: "img/logo.png", alt: "" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "menu__ul" }, [
+      _c("li", { staticClass: "menu__list" }, [
+        _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
+          _vm._v("Фильмы")
+        ])
       ]),
       _vm._v(" "),
-      _c("nav", { staticClass: "menu" }, [
-        _c("ul", { staticClass: "menu__ul" }, [
-          _c("li", { staticClass: "menu__list" }, [
-            _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
-              _vm._v("Фильмы")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "menu__list" }, [
-            _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
-              _vm._v("Сериалы")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "menu__list" }, [
-            _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
-              _vm._v("Мультфильмы")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "menu__list" }, [
-            _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
-              _vm._v("Книги")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "menu__list" }, [
-            _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
-              _vm._v("Спорт")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", { staticClass: "menu__list" }, [
-            _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
-              _vm._v("Акции")
-            ])
-          ])
+      _c("li", { staticClass: "menu__list" }, [
+        _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
+          _vm._v("Сериалы")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "menu__list" }, [
+        _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
+          _vm._v("Мультфильмы")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "menu__list" }, [
+        _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
+          _vm._v("Книги")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "menu__list" }, [
+        _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
+          _vm._v("Спорт")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "menu__list" }, [
+        _c("a", { staticClass: "menu__list-link", attrs: { href: "#" } }, [
+          _vm._v("Акции")
         ])
       ])
     ])

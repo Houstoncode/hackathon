@@ -676,6 +676,9 @@ button {
   padding: 200px 57px 100px 57px;
   width: 700px;
 }
+.facts-result__loss .facts-result__wrapper-points:before {
+  background-image: url(../img/facts-icon-3.png);
+}
 .facts-result__wrapper-points {
   display: flex;
   justify-content: center;
@@ -684,6 +687,17 @@ button {
   line-height: 58px;
   padding-bottom: 80px;
   position: relative;
+  margin-bottom: 10px;
+  text-shadow: -1px 1px 0px #ff4f12;
+}
+.facts-result__wrapper-points:before {
+  position: absolute;
+  content: "";
+  width: 188px;
+  height: 188px;
+  z-index: -4;
+  background-image: url(../img/facts-icon.png);
+  background-repeat: no-repeat;
 }
 .facts-result__wrapper-points div {
   margin: 0 5px;
@@ -704,4 +718,85 @@ button {
   color: #ff4f12;
   margin: 10px 0;
   display: inline-block;
+}
+
+.bar {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+}
+.bar__item {
+  width: 100%;
+  background-color: #fff;
+  height: 2px;
+}
+
+.header .auth__close {
+  display: none;
+}
+
+.header-menu .menu {
+  transform: translateX(0);
+}
+
+@media (max-width: 1050px) {
+  .header .container {
+    padding: 0;
+  }
+
+  .header__left {
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+  }
+}
+@media (max-width: 850px) {
+  .bar {
+    display: flex;
+  }
+
+  .menu {
+    transform: translate(-200%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    transition: all 0.4s;
+    padding: 20px 0 0 10px;
+  }
+  .menu .auth__close {
+    display: block;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 10px;
+  }
+  .menu .auth__close img {
+    width: 30px;
+    height: 30px;
+  }
+  .menu__ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    align-items: flex-start !important;
+  }
+  .menu__list {
+    margin-bottom: 20px !important;
+  }
+  .menu__list-link {
+    font-size: 20px;
+  }
+
+  .header {
+    padding: 8px 0q q;
+  }
 }

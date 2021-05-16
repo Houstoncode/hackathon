@@ -1,5 +1,8 @@
 <template>
-    <div class="facts-result">
+    <div class="facts-result facts-result__loss">
+        <button class="auth__close" @click="$emit('handleHiddenFactsResilt')">
+            <img src="img/close-icon.png" alt="" />
+        </button>
         <div class="facts-result__wrapper">
             <div class="facts-result__wrapper-points">
                 <div class="facts-result__points-current">5</div>

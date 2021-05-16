@@ -21,9 +21,14 @@
             </div>
         </div>
 
-        <button class="facts__btn">Ответить</button>
+        <button class="facts__btn" @click="handleShowFactsResult">
+            Ответить
+        </button>
 
-        <FactsResult v-if="false" />
+        <FactsResult
+            v-if="modelResult"
+            @handleHiddenFactsResilt="handleHiddenFactsResilt"
+        />
     </div>
 </template>
 
@@ -44,8 +49,23 @@ export default {
         FactsCardDetail,
         FactsResult
     },
+    data() {
+        return {
+            modelResult: false
+        };
+    },
     computed: {
         ...mapGetters(["getFirstFilm"])
+    },
+    methods: {
+        handleShowFactsResult() {
+            this.modelResult = true;
+            document.querySelector("body").style.overflow = "hidden";
+        },
+        handleHiddenFactsResilt() {
+            this.modelResult = false;
+            document.querySelector("body").style.overflow = "auto";
+        }
     }
 };
 </script>
