@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/init', [SiteController::class, 'init']);
 Route::get('/test', [SiteController::class, 'test']);
+Route::post('/verify', [SiteController::class, 'verifyTest']);

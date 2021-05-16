@@ -2,9 +2,9 @@
     <header class="header">
         <div class="container">
             <div class="header__left">
-                <a href="/" class="header__logo">
+                <router-link to="/" class="header__logo">
                     <img src="img/logo.png" alt="" />
-                </a>
+                </router-link>
                 <nav class="menu">
                     <button class="auth__close" @click="handleCloseMobileMenu">
                         <img src="img/close-icon.png" alt="" />

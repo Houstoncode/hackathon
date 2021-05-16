@@ -11,7 +11,7 @@
                 <div class="facts__wrapper">
                     <FactsCardDetail
                         v-for="(question, index) in getFirstFilm.tasks"
-                        v-model="answers[index + 1]"
+                        v-model="answers[index]"
                         :item="question"
                         :index="index"
                         :counts="getFirstFilm.tasks.length"
@@ -21,13 +21,19 @@
             </div>
         </div>
 
-        <button class="facts__btn" @click="handleShowFactsResult">
+        <button
+            class="facts__btn"
+            :class="{ disabled: isDisabled }"
+            @click="handleShowFactsResult"
+        >
             Ответить
         </button>
 
         <transition name="fade">
             <FactsResult
                 v-if="modelResult"
+                :all-counts="getFirstFilm.tasks.length"
+                :count-answers="countAnswers"
                 @handleHiddenFactsResilt="handleHiddenFactsResilt"
             />
         </transition>
@@ -49,14 +55,54 @@ export default {
     data() {
         return {
             modelResult: false,
-            answers: {}
+            answers: [],
+            countAnswers: 0
         };
     },
+    mounted() {
+        setTimeout(() => {
+            this.getFirstFilm.tasks.forEach((task, index) => {
+                this.answers[index] = [];
+
+                task.answers.forEach((answer, idx) => {
+                    this.answers[index][idx] = false;
+                });
+            });
+        }, 1000);
+    },
     computed: {
-        ...mapGetters(["getFirstFilm"])
+        ...mapGetters(["getFirstFilm"]),
+        isDisabled() {
+            let disabled = true;
+
+            const arr = this.answers
+                .map(answer => {
+                    return answer.includes(true) || null;
+                })
+                .filter(item => item);
+
+            if (arr && arr.length === this.getFirstFilm.tasks.length) {
+                disabled = false;
+            } else disabled = true;
+
+            return disabled;
+        }
     },
     methods: {
-        handleShowFactsResult() {
+        async handleShowFactsResult() {
+            const response = await fetch(window.origin + "/api/verify", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ answers: this.answers })
+            });
+
+            const {
+                data: { countAnswers }
+            } = await response.json();
+
+            this.countAnswers = countAnswers;
             this.modelResult = true;
             document.querySelector("body").style.overflow = "hidden";
         },
@@ -67,3 +113,11 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.disabled {
+    opacity: 0.3;
+    user-select: none;
+    pointer-events: none;
+}
+</style>
