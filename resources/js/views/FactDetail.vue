@@ -39,11 +39,6 @@ import { mapGetters } from "vuex";
 import FactsResult from "../components/FactsResult";
 
 export default {
-    data() {
-        return {
-            answers: {}
-        };
-    },
     components: {
         FilmInfo,
         FactsCardDetail,
@@ -51,7 +46,8 @@ export default {
     },
     data() {
         return {
-            modelResult: false
+            modelResult: false,
+            answers: {}
         };
     },
     computed: {

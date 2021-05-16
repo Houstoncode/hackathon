@@ -235,16 +235,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      answers: {}
-    };
-  },
   components: {
     FilmInfo: _components_FilmInfo__WEBPACK_IMPORTED_MODULE_0__.default,
     FactsCardDetail: _components_FactsCardDetail__WEBPACK_IMPORTED_MODULE_1__.default,
@@ -252,7 +248,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      modelResult: false
+      modelResult: false,
+      answers: {}
     };
   },
   computed: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_3__.mapGetters)(["getFirstFilm"])),
