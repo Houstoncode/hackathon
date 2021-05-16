@@ -21,6 +21,8 @@
         </div>
 
         <button class="facts__btn">Ответить</button>
+
+        <FactsResult v-if="false" />
     </div>
 </template>
 
@@ -28,11 +30,13 @@
 import FilmInfo from "../components/FilmInfo";
 import FactsCardDetail from "../components/FactsCardDetail";
 import { mapGetters } from "vuex";
+import FactsResult from "../components/FactsResult";
 
 export default {
     components: {
         FilmInfo,
-        FactsCardDetail
+        FactsCardDetail,
+        FactsResult
     },
     computed: {
         ...mapGetters(["getFirstFilm"])
